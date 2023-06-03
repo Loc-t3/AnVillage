@@ -1,0 +1,55 @@
+server:
+  port: 10080
+spring:
+  application:
+    name: user-server
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://121.5.151.112:3306/ang?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 123456
+      #服务器 -121.5.151.112  虚拟机 -192.168.23.129
+  redis:
+    host: 121.5.151.112
+    port: 6379
+    password: 123321
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+    timeout: 5000
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+  #main:
+    #web-application-type: reactive #解决gateway启动时和springboot整合的冲突
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:10023/eureka/
+    #      defaultZone: http://192.168.9.12:11010/eureka/
+    instance:
+      lease-renewal-interval-in-seconds: 10
+      lease-expiration-duration-in-seconds: 20
+      prefer-ip-address: true
+      instance-id: ${spring.application.name}:${server.port}
+
+
+mybatis-plus:
+  #type-aliases-package: com.mc.postserver.entity # 别名扫描包
+  configuration:
+    call-setters-on-nulls: true
+    return-instance-for-empty-row: true
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    global-config:
+      db-config:
+        id-type: ASSIGN_ID
+
+logging:
+  level:
+    com.mc.userserver: info
+

@@ -1,0 +1,22 @@
+# 应用名称
+spring:
+  application:
+    name: eureka-server
+#服务端口号
+server:
+  port: 10023
+#配置eureka
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 10000 #服务端间隔多少毫秒做定期删除的操作
+    renewal-percent-threshold: 0.85 #续约百分比 超过85%的应用没有和你续约 那么eureka会保护服务 不会剔除任何一个服务
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:10023/eureka/
+  instance:
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+    hostname: AnVillage #主机名称 或者服务ip
+    prefer-ip-address: true #以ip的形式显示显示具体的服务信息
+    lease-renewal-interval-in-seconds: 5 #服务实例的续约的时间间隔
