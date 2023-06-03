@@ -33,6 +33,6 @@ public @interface SysLog {
      *
      * @return 返回打印方法返回结果
      */
-    boolean printResult() default false;
+    int printResult() default 0;
 }
 

@@ -2,6 +2,7 @@ package com.mc.userserver.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.mc.common.utils.*;
+import com.mc.userserver.config.SysLog;
 import com.mc.userserver.entity.UserProfileTable;
 import com.mc.userserver.entity.UserTable;
 import com.mc.userserver.dto.loginDTO;
@@ -52,6 +53,14 @@ public class UserController {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+    /**
+     * 用户注册
+     * @param request
+     * @param user
+     * @param type
+     * @return
+     */
+    @SysLog(value = "#{'用户-操作-注册账号'}", level = "info", printResult = 0)
     @PostMapping("/register/{type}")
     public R<String> userRegister(HttpServletRequest request,@RequestBody UserTable user,@PathVariable String type) {
         String requestURI = request.getRequestURI();
@@ -110,6 +119,15 @@ public class UserController {
         return R.success("用户注册成功");
     }
 
+    /**
+     * 用户登录
+     * @param login
+     * @param type
+     * @param session
+     * @param request
+     * @return
+     */
+    @SysLog(value = "#{'用户-操作-登录账号'}", level = "info", printResult = 0)
     @PostMapping("/login/{type}")
     public R<String> userLogin(@RequestBody loginDTO login, @PathVariable String type, HttpSession session, HttpServletRequest request){
 
@@ -155,6 +173,12 @@ public class UserController {
 
     }
 
+    /**
+     * 用户登出
+     * @param request
+     * @return
+     */
+    @SysLog(value = "#{'用户-操作-退出账号'}", level = "info", printResult = 0)
     @PostMapping("/logout")
     public R<String> logout(HttpServletRequest request){
 
@@ -171,9 +195,14 @@ public class UserController {
         return R.success("退出成功");
     }
 
+
     /**
      * 发送手机验证码
+     * @param phone
+     * @param session
+     * @return
      */
+    @SysLog(value = "#{'用户-操作-发生验证码'}", level = "info", printResult = 0)
     @PostMapping("/code")
     public R<String> sendCode(@RequestParam("phone") String phone, HttpSession session) {
         //  发送短信验证码并保存验证码

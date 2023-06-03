@@ -1,7 +1,12 @@
 package com.mc.userserver.config;
 
 import com.baomidou.mybatisplus.core.toolkit.ClassUtils;
+import com.mc.common.utils.R;
+import com.mc.common.utils.ResultsCode;
 import com.mc.common.utils.SpringContextUtil;
+import com.mc.userserver.entity.UserOperationLogTable;
+import com.mc.userserver.filter.BaseContext;
+import com.mc.userserver.mapper.UserOperationLogMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.core.ApplicationContext;
 import org.aspectj.lang.JoinPoint;
@@ -9,6 +14,7 @@ import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.expression.BeanFactoryAccessor;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.expression.Expression;
@@ -26,6 +32,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.mc.common.utils.UserCommon.setUUId;
+
 /**
  * @作者：XMC
  * @邮箱：1309478453@qq.com
@@ -36,6 +44,9 @@ import java.util.Map;
 @Aspect
 @Component
 public class SysLogAspect {
+    @Autowired
+    private UserOperationLogMapper logMapper;
+
     private static final Logger log = LoggerFactory.getLogger(SysLogAspect.class);
 
     private static final DefaultParameterNameDiscoverer DEFAULT_PARAMETER_NAME_DISCOVERER = new DefaultParameterNameDiscoverer();
@@ -106,6 +117,7 @@ public class SysLogAspect {
         HttpServletRequest request = attributes.getRequest();
         String remoteAddr = request.getRemoteAddr();
         String requestURL = request.getRequestURL().toString();
+        String header = request.getHeader("user-agent");
 
         //获取执行方法类和方法名
         MethodSignature signature = (MethodSignature) point.getSignature();
@@ -125,7 +137,7 @@ public class SysLogAspect {
         SysLog sysLog = method.getAnnotation(SysLog.class);
         String logExpression = sysLog.value();
         String logLevel = sysLog.level();
-        boolean printResult = sysLog.printResult();
+        Integer printResult = ((R) result).getCode();
 
         // 解析日志中的表达式->获取传入参数
         Object[] args = point.getArgs();
@@ -143,40 +155,94 @@ public class SysLogAspect {
         Long costTime = null;
         // 请求开始时间
         Long startTime = START_TIME.get();
+        String costT = null;
 
         if (startTime != null) {
             // 请求耗时
             costTime = System.currentTimeMillis() - startTime;
+            costT = costTime.toString();
             // 清空开始时间
             START_TIME.remove();
         }
 
-
         // 如果发生异常，强制打印错误级别日志
         if(e != null) {
-            log.error("{}#{}(): {}, exception: {}, costTime: {}ms", className, methodName, logInfo, e.getMessage(), costTime);
+            log.error("{}: , exception: {}, costTime: {}ms", requestURL, logInfo, e.getMessage(), costT);
             return;
         }
+        //将需要保存的日志信息存储
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("remoteAddr",remoteAddr);
+        map.put("requestURL",requestURL);
+        map.put("header",header);
+        map.put("params",params);
+        map.put("logInfo",logInfo);
+        if (((R) result).getCode()== ResultsCode.SUCCESS.code){
+            map.put("logInfo",logInfo);
+        }else{
+            map.put("logInfo",((R) result).getMsg());
+        }
+        map.put("result",((R<?>) result).getCode());
+        map.put("costTime",costT+"ms");
 
         // 以下为打印对应级别的日志
+        printLevelData(logLevel,printResult,map);
+        //保存用户操作记录
+        saveLogInfo(map);
+
+    }
+
+    /**
+     * 解析@SysLog表达式
+     * @param template
+     * @param params
+     * @return
+     */
+    private String parseExpression(String template, Map<String, Object> params) {
+
+        // 将ioc容器设置到上下文中
+        ApplicationContext applicationContext = (ApplicationContext) new SpringContextUtil().getApplicationContext();
+
+        // 线程初始化StandardEvaluationContext
+        StandardEvaluationContext standardEvaluationContext = StandardEvaluationContextThreadLocal.get();
+        if(standardEvaluationContext == null){
+            standardEvaluationContext = new StandardEvaluationContext(applicationContext);
+            standardEvaluationContext.addPropertyAccessor(new BeanFactoryAccessor());
+
+            StandardEvaluationContextThreadLocal.set(standardEvaluationContext);
+        }
+
+        // 将自定义参数添加到上下文
+        standardEvaluationContext.setVariables(params);
+
+        // 解析表达式
+        Expression expression = EXPRESSION_PARSER.parseExpression(template, TEMPLATE_PARSER_CONTEXT);
+
+        return expression.getValue(standardEvaluationContext, String.class);
+    }
+
+    /**
+     * 依据日志级别打印对应日志
+     * @param logLevel
+     */
+    public void printLevelData(String logLevel,Integer printResult,HashMap map){
         if("info".equalsIgnoreCase(logLevel)){
-            if (printResult) {
+            if (printResult>0) {
 //                log.info("{}#{}(): {}, result: {}, costTime: {}ms", className, methodName, logInfo, result, costTime);
                 log.info("<=====================================================");
-                log.info("请求来源： =》" + remoteAddr);
-                log.info("请求URL：" + requestURL);
-                log.info("请求方式：" + request.getMethod());
-                log.info("响应方法：" + className + "." + methodName);
-                log.info("请求参数：" + params);
-                log.info("返回数据：{}"+result);
-                log.info("执行描述：{}"+logInfo);
-
-                log.info("costTime: {}ms"+costTime);
+                log.info("请求来源： =》" + map.get("remoteAddr"));
+                log.info("请求URL：=》" + map.get("requestURL"));
+                log.info("操作设备：=》" + map.get("header"));
+                log.info("请求参数：=》" + map.get("params"));
+                log.info("返回数据：=》"+map.get("result"));
+                log.info("执行描述：=》"+map.get("logInfo"));
+                log.info("costTime: {}ms =>"+map.get("costTime"));
                 log.info("------------------------------------------------------");
             } else {
-                log.info("{}#{}(): {}, costTime: {}ms", className, methodName, logInfo, costTime);
+                log.info("{}:costTime: {}ms", map.get("requestURL"), map.get("costTime"));
             }
-        } else if("debug".equalsIgnoreCase(logLevel)){
+        }
+       /* else if("debug".equalsIgnoreCase(logLevel)){
             if (printResult) {
                 log.debug("{}#{}(): {}, result: {}, costTime: {}ms", className, methodName, logInfo, result, costTime);
             } else {
@@ -200,29 +266,28 @@ public class SysLogAspect {
             } else {
                 log.error("{}#{}(): {}, costTime: {}ms", className, methodName, logInfo, costTime);
             }
-        }
+        }*/
+
     }
 
-    private String parseExpression(String template, Map<String, Object> params) {
+    /**
+     * 保存用户操作日志
+     * @param maps
+     */
+    public void saveLogInfo(HashMap maps){
+        UserOperationLogTable logTable = new UserOperationLogTable();
+        logTable.setOperationId(setUUId());
+        logTable.setUserId(BaseContext.getUser().getUserId());
+        logTable.setOperationAddr(maps.get("remoteAddr").toString());
+        logTable.setOperationUrl(maps.get("requestURL").toString());
+        logTable.setOperationCost(maps.get("costTime").toString());
+        logTable.setOperationDesc(maps.get("logInfo").toString());
+        logTable.setOperationResult(maps.get("result").toString());
+        logTable.setOperationContent(maps.get("params").toString());
+        logTable.setOperationDev(maps.get("header").toString());
+        logMapper.insert(logTable);
 
-        // 将ioc容器设置到上下文中
-        ApplicationContext applicationContext = (ApplicationContext) new SpringContextUtil().getApplicationContext();
 
-        // 线程初始化StandardEvaluationContext
-        StandardEvaluationContext standardEvaluationContext = StandardEvaluationContextThreadLocal.get();
-        if(standardEvaluationContext == null){
-            standardEvaluationContext = new StandardEvaluationContext(applicationContext);
-            standardEvaluationContext.addPropertyAccessor(new BeanFactoryAccessor());
 
-            StandardEvaluationContextThreadLocal.set(standardEvaluationContext);
-        }
-
-        // 将自定义参数添加到上下文
-        standardEvaluationContext.setVariables(params);
-
-        // 解析表达式
-        Expression expression = EXPRESSION_PARSER.parseExpression(template, TEMPLATE_PARSER_CONTEXT);
-
-        return expression.getValue(standardEvaluationContext, String.class);
     }
 }

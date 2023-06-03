@@ -3,6 +3,7 @@ package com.mc.userserver.controller;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.mc.common.utils.R;
+import com.mc.userserver.config.SysLog;
 import com.mc.userserver.dto.UserDTO;
 import com.mc.userserver.entity.UserActiveTable;
 import com.mc.userserver.entity.UserFansTable;
@@ -56,6 +57,7 @@ public class UserActiveController {
      * @param request 从token中获取当前登录用户id
      * @return
      */
+    @SysLog(value = "#{'用户-操作-关注用户'}", level = "info", printResult = 0)
     @PostMapping("/activeUser/{activedid}")
     public R<String> avtiveUser(@PathVariable String activedid, HttpServletRequest request){
         Boolean aBoolean = userActiveService.toActiveUser(activedid, request);
@@ -81,6 +83,7 @@ public class UserActiveController {
      * @param request  获取当前用户id
      * @return
      */
+    @SysLog(value = "#{'用户-操作-取消关注'}", level = "info", printResult = 0)
     @PostMapping("/delActiveUser/{activedid}")
     public R<String> delActiveUser(@PathVariable String activedid, HttpServletRequest request){
         Boolean aBoolean = userActiveService.delActiveUser(activedid, request);

@@ -22,4 +22,4 @@ spring:
 
 logging:
   level:
-    com.hmdp: debug
+    com.hmdp: warn

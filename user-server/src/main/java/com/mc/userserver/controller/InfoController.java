@@ -62,6 +62,10 @@ public class InfoController {
     @Autowired
     private UserAddressService userAddressService;
 
+    /**
+     * 获取用户信息
+     * @return
+     */
     @GetMapping("/getInfo")
     @ResponseBody
     public R<UserProfileTable> getInfo(){
@@ -94,6 +98,7 @@ public class InfoController {
      * @param request
      * @return
      */
+    @SysLog(value = "#{'用户-操作-修改地址成功'}", level = "info", printResult = 0)
     @PostMapping("/alterInfo")
     @ResponseBody
     public R<String> alterInfo(@RequestBody UserProfileTable userProfileTable, HttpServletRequest request){
@@ -102,6 +107,12 @@ public class InfoController {
 
     }
 
+    /**
+     * 修改密码
+     * @param data
+     * @return
+     */
+    @SysLog(value = "#{'用户-操作-修改密码成功'}", level = "info", printResult = 0)
     @PutMapping("/alterPass")
     public R<String> alterPass(@RequestBody Map<Object,String>  data){
         //获取用户信息
@@ -142,6 +153,7 @@ public class InfoController {
      * @param userAddressTable
      * @return
      */
+    @SysLog(value = "#{'用户:-操作-新增地址成功'}", level = "info", printResult = 0)
     @RequestMapping("/addAddress")
     public R<String> addAddress(@RequestBody UserAddressTable userAddressTable){
         Boolean add = userAddressService.addAddress(userAddressTable);
@@ -157,11 +169,11 @@ public class InfoController {
      * @param userAddressTable
      * @return
      */
-    @SysLog(value = "#{'用户:'+ #userAddressTable.getAddressId()+'-修改地址成功'}", level = "info", printResult = true)
+    @SysLog(value = "#{'用户-操作-修改地址成功'}", level = "info", printResult = 0)
     @RequestMapping("/alterAddress")
     public R<String> alterAddress(@RequestBody UserAddressTable userAddressTable){
         Boolean upd = userAddressService.alterAddress(userAddressTable);
-        if (upd){
+        if (!upd){
             return R.error("修改失败,请重试");
         }
         return R.success("修改成功");
