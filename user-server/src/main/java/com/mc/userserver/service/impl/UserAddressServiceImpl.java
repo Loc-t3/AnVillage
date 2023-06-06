@@ -1,6 +1,11 @@
 package com.mc.userserver.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.mc.common.utils.R;
+import com.mc.common.utils.ResultsCode;
 import com.mc.userserver.entity.UserAddressTable;
 import com.mc.userserver.mapper.UserAddressMapper;
 import com.mc.userserver.service.UserAddressService;
@@ -8,10 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.RedisServer;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 import static com.mc.common.utils.UserCommon.setUUId;
 
@@ -31,15 +33,38 @@ public class UserAddressServiceImpl extends ServiceImpl<UserAddressMapper, UserA
      * @return
      */
     @Override
-    public Boolean addAddress(UserAddressTable userAddressTable) {
+    public Map<String,String> addAddress(UserAddressTable userAddressTable) {
+        HashMap<String, String> map = new HashMap<>();
         userAddressTable.setAddressId(setUUId());
+        //获取需要处理的地址详情下标
         Integer index = reIndex(userAddressTable);
         if (index>0){
             String substring = userAddressTable.getAddressInfo().substring(index+1, userAddressTable.getAddressInfo().length());
             userAddressTable.setAddressInfo(substring);
         }
-        boolean save = this.save(userAddressTable);
-        return save;
+        try {
+            boolean save = this.save(userAddressTable);
+        }catch (Exception e){
+
+        }
+        //查询当前用户新增地址被使用的记录数
+        LambdaQueryWrapper<UserAddressTable> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.groupBy(UserAddressTable::getAddressInfo).having("address_info = {0}",userAddressTable.getAddressInfo());
+        int count = this.count(queryWrapper);
+        map.put("addressId",userAddressTable.getAddressId());
+        map.put("userId",userAddressTable.getUserId());
+        map.put("count",Integer.toString(count));
+
+
+
+        /*//保存数据成功 返回当前地址id和操作用户id
+        if (save){
+            map.put("addressId",userAddressTable.getAddressId());
+            map.put("userId",userAddressTable.getUserId());
+
+        }*/
+
+        return map;
 
     }
 

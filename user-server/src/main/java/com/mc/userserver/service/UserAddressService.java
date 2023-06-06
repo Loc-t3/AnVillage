@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.mc.userserver.entity.UserAddressTable;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * @作者：XMC
  * @邮箱：1309478453@qq.com
@@ -18,7 +20,7 @@ public interface UserAddressService extends IService<UserAddressTable> {
      * @param userAddressTable
      * @return
      */
-    Boolean addAddress(UserAddressTable userAddressTable);
+    Map<String,String> addAddress(UserAddressTable userAddressTable);
 
     /**
      * 修改地址

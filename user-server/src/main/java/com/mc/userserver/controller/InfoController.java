@@ -125,7 +125,7 @@ public class InfoController {
 
         UserTable user = userService.getOne(queryWrapper);
         //对比用户信息
-        String Oldencode = PasswordEncoder.encode(oldPassWord);
+        String oldenCode = PasswordEncoder.encode(oldPassWord);
         if (!(PasswordEncoder.matches(user.getPassword(),oldPassWord))){
             return R.error("原始密码错误,请重试");
         }
@@ -155,13 +155,13 @@ public class InfoController {
      */
     @SysLog(value = "#{'用户:-操作-新增地址成功'}", level = "info", printResult = 0)
     @RequestMapping("/addAddress")
-    public R<String> addAddress(@RequestBody UserAddressTable userAddressTable){
-        Boolean add = userAddressService.addAddress(userAddressTable);
-        if (!add){
+    public R<Object> addAddress(@RequestBody UserAddressTable userAddressTable){
+        Map<String, String> dataMap = userAddressService.addAddress(userAddressTable);
+        if (StringUtils.isEmpty(dataMap.get("addressId"))){
             return R.error("新增失败，请稍后重试");
         }
 //        log.info("用户{}新增地址成功",userAddressTable.getAddressId());
-        return R.success("新增成功");
+        return R.success(dataMap);
     }
 
     /**
