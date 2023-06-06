@@ -7,6 +7,7 @@ import com.mc.userserver.service.VillageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -28,11 +29,13 @@ public class VillageController {
      * @return
      */
     @PostMapping("/save")
-    @SysLog(value = "#{用户-操作-生成村庄成功}",level = "info",printResult = 0)
-    public R<VillageTable> saveVillage(@RequestBody Map<Object,String> data){
+    @SysLog(value = "#{'用户-操作-生成村庄成功'}",level = "info",printResult = 0)
+    public R<HashMap<String, Object>> saveVillage(@RequestBody Map<Object,String> data){
+        HashMap<String, Object> map = new HashMap<>();
         VillageTable villageTable = villageService.initVillage(data);
+        map.put("villageTable",villageTable);
 
-    return R.success(villageTable);
+        return R.success(map);
     }
 
 }

@@ -8,20 +8,6 @@ package com.mc.common.utils;
  * @修改记录：
  */
 public class VillageOrAppellationContants {
-    //村庄名称
-//   社会主义核心价值观: 富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善
-    public static final String VILLAGE_NAME_1 ="富强";
-    public static final String VILLAGE_NAME_2 ="民主";
-    public static final String VILLAGE_NAME_3 ="文明";
-    public static final String VILLAGE_NAME_4 ="和谐";
-    public static final String VILLAGE_NAME_5 ="自由";
-    public static final String VILLAGE_NAME_6 ="平等";
-    public static final String VILLAGE_NAME_7 ="公正";
-    public static final String VILLAGE_NAME_8 ="法治";
-    public static final String VILLAGE_NAME_9 ="爱国";
-    public static final String VILLAGE_NAME_10 ="敬业";
-    public static final String VILLAGE_NAME_11 ="诚信";
-    public static final String VILLAGE_NAME_12 ="友善";
 
     //称谓
     public static final String APPELATION_NAME_1 ="无名小卒";
