@@ -10,10 +10,11 @@ package com.mc.common.utils;
 public class AllStringCtant {
     public static final String DEFAULT_USER_INTRODUCTION = "这个人很懒,什么都没有留下";
     public static final String DEFAULT_SCHOOL = "未知";
-    public static final String common_number_zero = "0";
-    public static final String common_number_one = "1";
-    public static final int common_number_int_zero = 0;
-    public static final int common_number_int_one = 1;
+    public static final String COMMON_NUMBER_ZERO = "0";
+    public static final String COMMON_NUMBER_ONE = "1";
+    public static final String COMMON_NUMBER_THREE = "3";
+    public static final int COMMON_NUMBER_INT_ZERO = 0;
+    public static final int COMMON_NUMBER_INT_ONE = 1;
 
     public static final String LOGIN_CODE_KEY = "login:code:";
     public static final String USER_INFO_KEY = "user:info:";

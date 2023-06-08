@@ -21,8 +21,8 @@ import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static com.mc.common.utils.AllStringCtant.common_number_one;
-import static com.mc.common.utils.AllStringCtant.common_number_zero;
+import static com.mc.common.utils.AllStringCtant.COMMON_NUMBER_ONE;
+
 
 /**
  * @作者：XMC
@@ -64,7 +64,7 @@ public class UserActiveServiceImpl extends ServiceImpl<UserActiveMapper, UserAct
         //对关注表添加相应关系数据
         LambdaQueryWrapper<UserActiveTable> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(UserActiveTable::getUserId,fansuserId)
-                .eq(UserActiveTable::getUserActiveId,activedid).eq(UserActiveTable::getActiveRelationCode,common_number_one);
+                .eq(UserActiveTable::getUserActiveId,activedid).eq(UserActiveTable::getActiveRelationCode,COMMON_NUMBER_ONE);
         UserActiveTable active = this.getOne(queryWrapper);
         //健壮性判断
         if (active!=null){
@@ -75,13 +75,13 @@ public class UserActiveServiceImpl extends ServiceImpl<UserActiveMapper, UserAct
         userActiveTable.setActiveId(UserCommon.setUUId());
         userActiveTable.setUserId(fansuserId);
         userActiveTable.setUserActiveId(activedid);
-        userActiveTable.setActiveRelationCode(common_number_one);
+        userActiveTable.setActiveRelationCode(COMMON_NUMBER_ONE);
 
        /**此处对粉丝关系就不必再进行健壮性判断 因为在上方如果不符合 A用户已经对B用户进行了关注 不再向下执行
 
         LambdaQueryWrapper<UserFansTable> queryWrapper2 = new LambdaQueryWrapper<>();
         queryWrapper2.eq(UserFansTable::getUserId,fansuserId)
-                .eq(UserFansTable::getUserFansId,activedid).eq(UserFansTable::getFansRelationCode,common_number_one);
+                .eq(UserFansTable::getUserFansId,activedid).eq(UserFansTable::getFansRelationCode,COMMON_NUMBER_ONE);
         UserFansTable fans = userFansService.getOne(queryWrapper2);
         //健壮性判断
         if (fans!=null){
@@ -94,7 +94,7 @@ public class UserActiveServiceImpl extends ServiceImpl<UserActiveMapper, UserAct
         userFansTable.setFansId(UserCommon.setUUId());
         userFansTable.setUserId(activedid);
         userFansTable.setUserFansId(fansuserId);
-        userFansTable.setFansRelationCode(common_number_one);
+        userFansTable.setFansRelationCode(COMMON_NUMBER_ONE);
 
         //对个人用户资料关注者和粉丝数量进行增加
         //关注者(userId) 关注数量+1
@@ -145,7 +145,7 @@ public class UserActiveServiceImpl extends ServiceImpl<UserActiveMapper, UserAct
         //获取原有数据
         LambdaQueryWrapper<UserActiveTable> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(UserActiveTable::getUserId,fansuserId)
-                .eq(UserActiveTable::getUserActiveId,activedid).eq(UserActiveTable::getActiveRelationCode,common_number_one);
+                .eq(UserActiveTable::getUserActiveId,activedid).eq(UserActiveTable::getActiveRelationCode,COMMON_NUMBER_ONE);
         UserActiveTable one = this.getOne(queryWrapper);
         /*//对数据进行修改
         LambdaUpdateWrapper<UserActiveTable> updateWrapper = new LambdaUpdateWrapper<>();
@@ -156,7 +156,7 @@ public class UserActiveServiceImpl extends ServiceImpl<UserActiveMapper, UserAct
         //获取原有数据
         LambdaQueryWrapper<UserFansTable> fansqueryWrapper = new LambdaQueryWrapper<>();
         fansqueryWrapper.eq(UserFansTable::getUserId,activedid)
-                .eq(UserFansTable::getUserFansId,fansuserId).eq(UserFansTable::getFansRelationCode,common_number_one);
+                .eq(UserFansTable::getUserFansId,fansuserId).eq(UserFansTable::getFansRelationCode,COMMON_NUMBER_ONE);
         UserFansTable fansTable = userFansService.getOne(fansqueryWrapper);
         /*//对数据进行修改
         LambdaUpdateWrapper<UserFansTable> fansupdateWrapper = new LambdaUpdateWrapper<>();

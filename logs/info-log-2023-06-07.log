@@ -1,0 +1,31 @@
+[2023-06-07 00:31:19.536] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 02:11:30.572] [ INFO] com.netflix.discovery.DiscoveryClient                       :  897 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - Re-registering apps/USER-SERVER
+[2023-06-07 02:11:30.573] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-07 02:11:30.591] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-07 11:35:17.173] [ INFO] com.netflix.discovery.DiscoveryClient                       :  897 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - Re-registering apps/USER-SERVER
+[2023-06-07 11:35:17.173] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-07 11:35:17.187] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-07 13:41:04.800] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 20:53:08.192] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 20:58:08.205] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:03:08.209] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:08:08.215] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:13:08.226] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:18:08.234] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:23:08.237] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:28:08.240] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:33:08.248] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:38:08.258] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:43:08.266] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:48:08.279] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:53:08.293] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 21:58:08.299] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:03:08.311] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:08:08.326] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:13:08.329] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:18:08.334] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:23:08.348] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:28:08.362] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:33:08.367] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:38:08.378] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-07 22:43:08.384] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration

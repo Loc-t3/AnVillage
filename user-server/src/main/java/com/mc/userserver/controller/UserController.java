@@ -73,11 +73,11 @@ public class UserController {
             String encode = PasswordEncoder.encode(password);
             user.setPassword(encode);
         } //邮箱注册则对邮箱进行正则验证
-        else if (type.equals(common_number_one)&&!RegexUtils.isEmailInvalid(user.getEmail())){
+        else if (type.equals(COMMON_NUMBER_ONE)&&!RegexUtils.isEmailInvalid(user.getEmail())){
 
             user.setEmail(user.getEmail());
         }  //手机注册则对手机号进行正则验证
-        else if (type.equals(common_number_zero)&&!RegexUtils.isPhoneInvalid(user.getPhone())){
+        else if (type.equals(COMMON_NUMBER_ZERO)&&!RegexUtils.isPhoneInvalid(user.getPhone())){
             user.setPhone(user.getPhone());
         }else{
             return R.error("手机号格式错误！");
@@ -101,7 +101,7 @@ public class UserController {
 
 
         //通过注册方式判断是否已存在注册用户
-        if (type.equals(common_number_one)||type.equals(common_number_zero))
+        if (type.equals(COMMON_NUMBER_ONE)||type.equals(COMMON_NUMBER_ZERO))
         {
             if (!userService.CheckPhoneIsOrNot(type,user)){
                 userService.save(user);
@@ -138,7 +138,7 @@ public class UserController {
         //对密码进行加密
         String encodePwd = PasswordEncoder.encode(login.getPassword());
         //判断是密码登录还是短信验证登录 0 - 密码登录，  //密码验证正确则对账号进行核对
-        if (type.equals(common_number_zero)&&matches(encodePwd, login.getPassword())){
+        if (type.equals(COMMON_NUMBER_ZERO)&&matches(encodePwd, login.getPassword())){
 
             //1.对帐号进行正则判断 判断账号形式为手机号还是邮箱
             if (!RegexUtils.isEmailInvalid(login.getAcount())){
@@ -151,7 +151,7 @@ public class UserController {
         }
 
         //1-短信验证登录 账号必然为手机号
-        if (type.equals(common_number_one)&&matches(encodePwd,login.getPassword())){
+        if (type.equals(COMMON_NUMBER_ONE)&&matches(encodePwd,login.getPassword())){
             //判断验证码 从reids中获取
             String CasheCode = stringRedisTemplate.opsForValue().get(LOGIN_CODE_KEY + login.getAcount());
             String code = login.getCode();

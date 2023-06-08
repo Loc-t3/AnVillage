@@ -3,6 +3,7 @@ package com.mc.userserver.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.mc.common.utils.R;
 import com.mc.userserver.entity.VillageTable;
+import com.mc.userserver.entity.VillageUserTable;
 import com.mc.userserver.mapper.VillageMapper;
 
 import java.util.Map;
@@ -17,4 +18,6 @@ import java.util.Map;
 public interface VillageService extends IService<VillageTable> {
 
     VillageTable initVillage(Map<Object,String> data);
+
+    R<VillageUserTable> addIntoVillage(Map<Object,String> data);
 }

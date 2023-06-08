@@ -27,6 +27,7 @@ public class VillageUserTable {
     private String villageId;
     private String userId;
     private String status;
+    private String isAdd;
     private String villageUserContribute;
     private String villageUserAppellation;
     private String villageUserAppellationDesc;
@@ -39,8 +40,7 @@ public class VillageUserTable {
     @JsonIgnore
     private LocalDateTime updateTime;
 
-    @JsonIgnore
-    private String isDelete;
+
 
     private String attribute01;
     private String attribute02;

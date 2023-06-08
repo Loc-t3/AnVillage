@@ -3,7 +3,10 @@ package com.mc.userserver.controller;
 import com.mc.common.utils.R;
 import com.mc.userserver.config.SysLog;
 import com.mc.userserver.entity.VillageTable;
+import com.mc.userserver.entity.VillageUserTable;
+import com.mc.userserver.mapper.VillageUserMapper;
 import com.mc.userserver.service.VillageService;
+import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +25,8 @@ import java.util.Map;
 public class VillageController {
     @Autowired
     private VillageService villageService;
+    @Autowired
+    private VillageUserMapper villageUserMapper;
 
     /**
      * 生成村庄(由当前地址的第三人触发创建)
@@ -37,5 +42,23 @@ public class VillageController {
 
         return R.success(map);
     }
+
+    /**
+     * 发送信息至用户，用户同意后加入村庄
+     * @param villageUser
+     * @return
+     */
+    @PostMapping("add")
+    @SysLog(value = "#{'用户-操作-加入村庄成功'}",level = "info",printResult = 0)
+    public R<VillageUserTable> addIntoVillage(@RequestBody Map<Object,String> data){
+
+        return  villageService.addIntoVillage(data);
+
+
+    }
+
+
+
+
 
 }

@@ -54,16 +54,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserTable> implemen
     @Override
     public Boolean CheckPhoneIsOrNot(String type,UserTable user) {
         LambdaQueryWrapper<UserTable> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-if (type.equals(common_number_zero)){
+if (type.equals(COMMON_NUMBER_ZERO)){
     lambdaQueryWrapper.eq(UserTable::getPhone,user.getPhone());
 }
-        if (type.equals(common_number_one)){
+        if (type.equals(COMMON_NUMBER_ONE)){
             lambdaQueryWrapper.eq(UserTable::getEmail,user.getEmail());
         }
 
         List<UserTable> list = userService.list(lambdaQueryWrapper);
         //当查询结果大于等于1时,表明该注册方式已被注册
-        if (list.size()>=common_number_int_one) {
+        if (list.size()>=COMMON_NUMBER_INT_ONE) {
             return true;
         }
         return false;
@@ -83,7 +83,7 @@ if (type.equals(common_number_zero)){
         //对密码进行加密
         String encodePwd = PasswordEncoder.encode(login.getPassword());
         //判断是密码登录还是短信验证登录 0 - 密码登录，  //密码验证正确则对账号进行核对
-        if (type.equals(common_number_zero)&&matches(encodePwd, login.getPassword())){
+        if (type.equals(COMMON_NUMBER_ZERO)&&matches(encodePwd, login.getPassword())){
 
                 //1.对帐号进行正则判断 判断账号形式为手机号还是邮箱
                 if (!RegexUtils.isEmailInvalid(login.getAcount())){
@@ -96,7 +96,7 @@ if (type.equals(common_number_zero)){
             }
 
         //1-短信验证登录 账号必然为手机号
-        if (type.equals(common_number_one)&&matches(encodePwd,login.getPassword())){
+        if (type.equals(COMMON_NUMBER_ONE)&&matches(encodePwd,login.getPassword())){
             //判断验证码 从reids中获取
             String CasheCode = stringRedisTemplate.opsForValue().get(LOGIN_CODE_KEY + login.getAcount());
             String code = login.getCode();
