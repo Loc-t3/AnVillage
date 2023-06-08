@@ -45,7 +45,7 @@ public class VillageController {
 
     /**
      * 发送信息至用户，用户同意后加入村庄
-     * @param villageUser
+     * @param
      * @return
      */
     @PostMapping("add")

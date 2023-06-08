@@ -870,3 +870,457 @@ java.lang.NullPointerException: null
 [2023-06-08 10:48:33.076] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
 [2023-06-08 10:48:34.358] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
 [2023-06-08 10:48:34.366] [ INFO] com.mc.userserver.UserServerApplication                     :   61 - Started UserServerApplication in 14.99 seconds (JVM running for 16.111)
+[2023-06-08 10:53:31.434] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-08 10:57:45.496] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   65 - Unregistering application USER-SERVER with eureka with status DOWN
+[2023-06-08 10:57:45.496] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193065496, current=DOWN, previous=UP]
+[2023-06-08 10:57:45.496] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 10:57:45.509] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 10:57:45.761] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  218 - Shutting down ExecutorService 'applicationTaskExecutor'
+[2023-06-08 10:57:45.764] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2024 - {dataSource-1} closing ...
+[2023-06-08 10:57:45.765] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2096 - {dataSource-1} closed
+[2023-06-08 10:57:45.783] [ INFO] com.netflix.discovery.DiscoveryClient                       :  935 - Shutting down DiscoveryClient ...
+[2023-06-08 10:57:48.800] [ INFO] com.netflix.discovery.DiscoveryClient                       :  971 - Unregistering ...
+[2023-06-08 10:57:48.817] [ INFO] com.netflix.discovery.DiscoveryClient                       :  973 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - deregister  status: 200
+[2023-06-08 10:57:48.825] [ INFO] com.netflix.discovery.DiscoveryClient                       :  960 - Completed shut down of DiscoveryClient
+[2023-06-08 10:57:55.452] [ INFO] org.hibernate.validator.internal.util.Version               :   21 - HV000001: Hibernate Validator 6.1.7.Final
+[2023-06-08 10:57:57.227] [ INFO] com.mc.userserver.UserServerApplication                     :  648 - No active profile set, falling back to default profiles: default
+[2023-06-08 10:57:57.803] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  249 - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2023-06-08 10:57:57.806] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  127 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2023-06-08 10:57:57.829] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  187 - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+[2023-06-08 10:57:58.079] [ INFO] org.springframework.cloud.context.scope.GenericScope        :  295 - BeanFactory id=ffdff769-0e92-3833-9d54-748daa22936f
+[2023-06-08 10:57:58.285] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 10:57:58.287] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 10:57:58.289] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 10:57:58.544] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  108 - Tomcat initialized with port(s): 10080 (http)
+[2023-06-08 10:57:58.552] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Initializing ProtocolHandler ["http-nio-10080"]
+[2023-06-08 10:57:58.552] [ INFO] org.apache.catalina.core.StandardService                    :  173 - Starting service [Tomcat]
+[2023-06-08 10:57:58.552] [ INFO] org.apache.catalina.core.StandardEngine                     :  173 - Starting Servlet engine: [Apache Tomcat/9.0.46]
+[2023-06-08 10:57:58.668] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring embedded WebApplicationContext
+[2023-06-08 10:57:58.668] [ INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:  285 - Root WebApplicationContext: initialization completed in 1428 ms
+[2023-06-08 10:57:59.060] [ INFO] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure:   56 - Init DruidDataSource
+[2023-06-08 10:57:59.173] [ INFO] com.alibaba.druid.pool.DruidDataSource                      :  983 - {dataSource-1} inited
+[2023-06-08 10:58:00.295] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 10:58:00.296] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 10:58:00.300] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 10:58:00.300] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 10:58:00.493] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  181 - Initializing ExecutorService 'applicationTaskExecutor'
+[2023-06-08 10:58:00.578] [ INFO] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping:   53 - Adding welcome page: class path resource [static/index.html]
+[2023-06-08 10:58:02.147] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 10:58:02.201] [ INFO] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration:   78 - Eureka HTTP Client uses Jersey
+[2023-06-08 10:58:03.504] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 10:58:04.806] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 10:58:04.834] [ WARN] org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger:  106 - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 10:58:04.849] [ WARN] org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger:   83 - You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 10:58:04.938] [ INFO] org.springframework.cloud.netflix.eureka.InstanceInfoFactory:   72 - Setting initial instance status as: STARTING
+[2023-06-08 10:58:04.967] [ INFO] com.netflix.discovery.DiscoveryClient                       :  372 - Initializing Eureka in region us-east-1
+[2023-06-08 10:58:05.331] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   70 - Using JSON encoding codec LegacyJacksonJson
+[2023-06-08 10:58:05.332] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   71 - Using JSON decoding codec LegacyJacksonJson
+[2023-06-08 10:58:05.424] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   80 - Using XML encoding codec XStreamXml
+[2023-06-08 10:58:05.424] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   81 - Using XML decoding codec XStreamXml
+[2023-06-08 10:58:05.638] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-08 10:58:05.654] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1007 - Disable delta property : false
+[2023-06-08 10:58:05.654] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1008 - Single vip registry refresh property : null
+[2023-06-08 10:58:05.654] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1009 - Force full registry fetch : false
+[2023-06-08 10:58:05.655] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1010 - Application is null : false
+[2023-06-08 10:58:05.655] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1011 - Registered Applications size is zero : true
+[2023-06-08 10:58:05.655] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1013 - Application version is -1: true
+[2023-06-08 10:58:05.655] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1097 - Getting all instance registry info from the eureka server
+[2023-06-08 10:58:05.960] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1106 - The response status is 200
+[2023-06-08 10:58:05.962] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1321 - Starting heartbeat executor: renew interval is: 30
+[2023-06-08 10:58:05.965] [ INFO] com.netflix.discovery.InstanceInfoReplicator                :   60 - InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2023-06-08 10:58:05.968] [ INFO] com.netflix.discovery.DiscoveryClient                       :  492 - Discovery Client initialized at timestamp 1686193085967 with initial instances count: 1
+[2023-06-08 10:58:05.971] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   41 - Registering application USER-SERVER with eureka with status UP
+[2023-06-08 10:58:05.972] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193085972, current=UP, previous=STARTING]
+[2023-06-08 10:58:05.974] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 10:58:05.975] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Starting ProtocolHandler ["http-nio-10080"]
+[2023-06-08 10:58:06.000] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  220 - Tomcat started on port(s): 10080 (http) with context path ''
+[2023-06-08 10:58:06.001] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration:  145 - Updating port to 10080
+[2023-06-08 10:58:06.013] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 10:58:07.297] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 10:58:08.588] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 10:58:08.596] [ INFO] com.mc.userserver.UserServerApplication                     :   61 - Started UserServerApplication in 14.947 seconds (JVM running for 15.97)
+[2023-06-08 10:58:51.863] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-06-08 10:58:51.863] [ INFO] org.springframework.web.servlet.DispatcherServlet           :  525 - Initializing Servlet 'dispatcherServlet'
+[2023-06-08 10:58:51.874] [ INFO] org.springframework.web.servlet.DispatcherServlet           :  547 - Completed initialization in 11 ms
+[2023-06-08 10:58:52.956] [ INFO] com.mc.common.utils.MyMetaObjecthandler                     :   19 - 公共字段自动填充[insert]...
+[2023-06-08 10:58:53.072] [ERROR] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:  175 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at com.mc.userserver.config.SysLogAspect.printLog(SysLogAspect.java:140)
+	at com.mc.userserver.config.SysLogAspect.doAfterThrowing(SysLogAspect.java:103)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:626)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:66)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.mc.userserver.controller.VillageController$$EnhancerBySpringCGLIB$$6ceb54b6.addIntoVillage(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+[2023-06-08 11:03:05.664] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-08 11:04:38.422] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   65 - Unregistering application USER-SERVER with eureka with status DOWN
+[2023-06-08 11:04:38.422] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193478422, current=DOWN, previous=UP]
+[2023-06-08 11:04:38.422] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 11:04:38.426] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 11:04:38.675] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  218 - Shutting down ExecutorService 'applicationTaskExecutor'
+[2023-06-08 11:04:38.678] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2024 - {dataSource-1} closing ...
+[2023-06-08 11:04:38.682] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2096 - {dataSource-1} closed
+[2023-06-08 11:04:38.820] [ INFO] com.netflix.discovery.DiscoveryClient                       :  935 - Shutting down DiscoveryClient ...
+[2023-06-08 11:04:41.834] [ INFO] com.netflix.discovery.DiscoveryClient                       :  971 - Unregistering ...
+[2023-06-08 11:04:41.849] [ INFO] com.netflix.discovery.DiscoveryClient                       :  973 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - deregister  status: 200
+[2023-06-08 11:04:41.857] [ INFO] com.netflix.discovery.DiscoveryClient                       :  960 - Completed shut down of DiscoveryClient
+[2023-06-08 11:04:49.033] [ INFO] org.hibernate.validator.internal.util.Version               :   21 - HV000001: Hibernate Validator 6.1.7.Final
+[2023-06-08 11:04:50.792] [ INFO] com.mc.userserver.UserServerApplication                     :  648 - No active profile set, falling back to default profiles: default
+[2023-06-08 11:04:51.378] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  249 - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2023-06-08 11:04:51.380] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  127 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2023-06-08 11:04:51.404] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  187 - Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+[2023-06-08 11:04:51.701] [ INFO] org.springframework.cloud.context.scope.GenericScope        :  295 - BeanFactory id=ffdff769-0e92-3833-9d54-748daa22936f
+[2023-06-08 11:04:51.962] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:04:51.964] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:04:51.966] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:04:52.224] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  108 - Tomcat initialized with port(s): 10080 (http)
+[2023-06-08 11:04:52.232] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Initializing ProtocolHandler ["http-nio-10080"]
+[2023-06-08 11:04:52.232] [ INFO] org.apache.catalina.core.StandardService                    :  173 - Starting service [Tomcat]
+[2023-06-08 11:04:52.232] [ INFO] org.apache.catalina.core.StandardEngine                     :  173 - Starting Servlet engine: [Apache Tomcat/9.0.46]
+[2023-06-08 11:04:52.347] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring embedded WebApplicationContext
+[2023-06-08 11:04:52.347] [ INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:  285 - Root WebApplicationContext: initialization completed in 1543 ms
+[2023-06-08 11:04:52.728] [ INFO] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure:   56 - Init DruidDataSource
+[2023-06-08 11:04:52.837] [ INFO] com.alibaba.druid.pool.DruidDataSource                      :  983 - {dataSource-1} inited
+[2023-06-08 11:04:54.092] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 11:04:54.092] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 11:04:54.095] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 11:04:54.095] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 11:04:54.295] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  181 - Initializing ExecutorService 'applicationTaskExecutor'
+[2023-06-08 11:04:54.381] [ INFO] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping:   53 - Adding welcome page: class path resource [static/index.html]
+[2023-06-08 11:04:55.945] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:04:55.995] [ INFO] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration:   78 - Eureka HTTP Client uses Jersey
+[2023-06-08 11:04:57.322] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:04:58.624] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:04:58.649] [ WARN] org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger:  106 - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 11:04:58.663] [ WARN] org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger:   83 - You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 11:04:58.745] [ INFO] org.springframework.cloud.netflix.eureka.InstanceInfoFactory:   72 - Setting initial instance status as: STARTING
+[2023-06-08 11:04:58.774] [ INFO] com.netflix.discovery.DiscoveryClient                       :  372 - Initializing Eureka in region us-east-1
+[2023-06-08 11:04:59.111] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   70 - Using JSON encoding codec LegacyJacksonJson
+[2023-06-08 11:04:59.111] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   71 - Using JSON decoding codec LegacyJacksonJson
+[2023-06-08 11:04:59.200] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   80 - Using XML encoding codec XStreamXml
+[2023-06-08 11:04:59.200] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   81 - Using XML decoding codec XStreamXml
+[2023-06-08 11:04:59.408] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-08 11:04:59.421] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1007 - Disable delta property : false
+[2023-06-08 11:04:59.421] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1008 - Single vip registry refresh property : null
+[2023-06-08 11:04:59.422] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1009 - Force full registry fetch : false
+[2023-06-08 11:04:59.422] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1010 - Application is null : false
+[2023-06-08 11:04:59.422] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1011 - Registered Applications size is zero : true
+[2023-06-08 11:04:59.422] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1013 - Application version is -1: true
+[2023-06-08 11:04:59.422] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1097 - Getting all instance registry info from the eureka server
+[2023-06-08 11:04:59.721] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1106 - The response status is 200
+[2023-06-08 11:04:59.723] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1321 - Starting heartbeat executor: renew interval is: 30
+[2023-06-08 11:04:59.725] [ INFO] com.netflix.discovery.InstanceInfoReplicator                :   60 - InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2023-06-08 11:04:59.728] [ INFO] com.netflix.discovery.DiscoveryClient                       :  492 - Discovery Client initialized at timestamp 1686193499727 with initial instances count: 2
+[2023-06-08 11:04:59.731] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   41 - Registering application USER-SERVER with eureka with status UP
+[2023-06-08 11:04:59.732] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193499732, current=UP, previous=STARTING]
+[2023-06-08 11:04:59.733] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 11:04:59.734] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Starting ProtocolHandler ["http-nio-10080"]
+[2023-06-08 11:04:59.753] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  220 - Tomcat started on port(s): 10080 (http) with context path ''
+[2023-06-08 11:04:59.755] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration:  145 - Updating port to 10080
+[2023-06-08 11:04:59.779] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 11:05:01.054] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:05:02.322] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:05:02.331] [ INFO] com.mc.userserver.UserServerApplication                     :   61 - Started UserServerApplication in 15.074 seconds (JVM running for 16.27)
+[2023-06-08 11:05:06.073] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-06-08 11:05:06.073] [ INFO] org.springframework.web.servlet.DispatcherServlet           :  525 - Initializing Servlet 'dispatcherServlet'
+[2023-06-08 11:05:06.080] [ INFO] org.springframework.web.servlet.DispatcherServlet           :  547 - Completed initialization in 7 ms
+[2023-06-08 11:05:07.215] [ INFO] com.mc.userserver.config.SysLogAspect                       :  242 - http://localhost:10080/Village/add:costTime: 309msms
+[2023-06-08 11:05:07.222] [ INFO] com.mc.common.utils.MyMetaObjecthandler                     :   19 - 公共字段自动填充[insert]...
+[2023-06-08 11:05:34.522] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   65 - Unregistering application USER-SERVER with eureka with status DOWN
+[2023-06-08 11:05:34.522] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193534522, current=DOWN, previous=UP]
+[2023-06-08 11:05:34.523] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 11:05:34.528] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 11:05:34.784] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  218 - Shutting down ExecutorService 'applicationTaskExecutor'
+[2023-06-08 11:05:34.787] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2024 - {dataSource-1} closing ...
+[2023-06-08 11:05:34.792] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2096 - {dataSource-1} closed
+[2023-06-08 11:05:34.922] [ INFO] com.netflix.discovery.DiscoveryClient                       :  935 - Shutting down DiscoveryClient ...
+[2023-06-08 11:05:37.925] [ INFO] com.netflix.discovery.DiscoveryClient                       :  971 - Unregistering ...
+[2023-06-08 11:05:37.941] [ INFO] com.netflix.discovery.DiscoveryClient                       :  973 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - deregister  status: 200
+[2023-06-08 11:05:37.949] [ INFO] com.netflix.discovery.DiscoveryClient                       :  960 - Completed shut down of DiscoveryClient
+[2023-06-08 11:05:46.412] [ INFO] org.hibernate.validator.internal.util.Version               :   21 - HV000001: Hibernate Validator 6.1.7.Final
+[2023-06-08 11:05:48.184] [ INFO] com.mc.userserver.UserServerApplication                     :  648 - No active profile set, falling back to default profiles: default
+[2023-06-08 11:05:48.764] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  249 - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2023-06-08 11:05:48.767] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  127 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2023-06-08 11:05:48.794] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  187 - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+[2023-06-08 11:05:49.068] [ INFO] org.springframework.cloud.context.scope.GenericScope        :  295 - BeanFactory id=ffdff769-0e92-3833-9d54-748daa22936f
+[2023-06-08 11:05:49.273] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:05:49.275] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:05:49.277] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:05:49.538] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  108 - Tomcat initialized with port(s): 10080 (http)
+[2023-06-08 11:05:49.545] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Initializing ProtocolHandler ["http-nio-10080"]
+[2023-06-08 11:05:49.546] [ INFO] org.apache.catalina.core.StandardService                    :  173 - Starting service [Tomcat]
+[2023-06-08 11:05:49.546] [ INFO] org.apache.catalina.core.StandardEngine                     :  173 - Starting Servlet engine: [Apache Tomcat/9.0.46]
+[2023-06-08 11:05:49.664] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring embedded WebApplicationContext
+[2023-06-08 11:05:49.664] [ INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:  285 - Root WebApplicationContext: initialization completed in 1467 ms
+[2023-06-08 11:05:50.042] [ INFO] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure:   56 - Init DruidDataSource
+[2023-06-08 11:05:50.145] [ INFO] com.alibaba.druid.pool.DruidDataSource                      :  983 - {dataSource-1} inited
+[2023-06-08 11:05:51.294] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 11:05:51.294] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 11:05:51.298] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 11:05:51.299] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 11:05:51.495] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  181 - Initializing ExecutorService 'applicationTaskExecutor'
+[2023-06-08 11:05:51.580] [ INFO] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping:   53 - Adding welcome page: class path resource [static/index.html]
+[2023-06-08 11:05:53.178] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:05:53.219] [ INFO] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration:   78 - Eureka HTTP Client uses Jersey
+[2023-06-08 11:05:54.529] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:05:55.828] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:05:55.853] [ WARN] org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger:  106 - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 11:05:55.868] [ WARN] org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger:   83 - You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 11:05:55.960] [ INFO] org.springframework.cloud.netflix.eureka.InstanceInfoFactory:   72 - Setting initial instance status as: STARTING
+[2023-06-08 11:05:55.991] [ INFO] com.netflix.discovery.DiscoveryClient                       :  372 - Initializing Eureka in region us-east-1
+[2023-06-08 11:05:56.343] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   70 - Using JSON encoding codec LegacyJacksonJson
+[2023-06-08 11:05:56.344] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   71 - Using JSON decoding codec LegacyJacksonJson
+[2023-06-08 11:05:56.437] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   80 - Using XML encoding codec XStreamXml
+[2023-06-08 11:05:56.438] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   81 - Using XML decoding codec XStreamXml
+[2023-06-08 11:05:56.659] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-08 11:05:56.673] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1007 - Disable delta property : false
+[2023-06-08 11:05:56.673] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1008 - Single vip registry refresh property : null
+[2023-06-08 11:05:56.673] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1009 - Force full registry fetch : false
+[2023-06-08 11:05:56.674] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1010 - Application is null : false
+[2023-06-08 11:05:56.674] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1011 - Registered Applications size is zero : true
+[2023-06-08 11:05:56.674] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1013 - Application version is -1: true
+[2023-06-08 11:05:56.674] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1097 - Getting all instance registry info from the eureka server
+[2023-06-08 11:05:56.969] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1106 - The response status is 200
+[2023-06-08 11:05:56.972] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1321 - Starting heartbeat executor: renew interval is: 30
+[2023-06-08 11:05:56.974] [ INFO] com.netflix.discovery.InstanceInfoReplicator                :   60 - InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2023-06-08 11:05:56.979] [ INFO] com.netflix.discovery.DiscoveryClient                       :  492 - Discovery Client initialized at timestamp 1686193556978 with initial instances count: 2
+[2023-06-08 11:05:56.983] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   41 - Registering application USER-SERVER with eureka with status UP
+[2023-06-08 11:05:56.983] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193556983, current=UP, previous=STARTING]
+[2023-06-08 11:05:56.986] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 11:05:56.986] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Starting ProtocolHandler ["http-nio-10080"]
+[2023-06-08 11:05:57.012] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  220 - Tomcat started on port(s): 10080 (http) with context path ''
+[2023-06-08 11:05:57.013] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration:  145 - Updating port to 10080
+[2023-06-08 11:05:57.022] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 11:05:58.305] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:05:59.585] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:05:59.593] [ INFO] com.mc.userserver.UserServerApplication                     :   61 - Started UserServerApplication in 15.554 seconds (JVM running for 16.905)
+[2023-06-08 11:06:12.652] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-06-08 11:06:12.652] [ INFO] org.springframework.web.servlet.DispatcherServlet           :  525 - Initializing Servlet 'dispatcherServlet'
+[2023-06-08 11:06:12.659] [ INFO] org.springframework.web.servlet.DispatcherServlet           :  547 - Completed initialization in 7 ms
+[2023-06-08 11:06:13.817] [ INFO] com.mc.common.utils.MyMetaObjecthandler                     :   19 - 公共字段自动填充[insert]...
+[2023-06-08 11:06:13.906] [ INFO] com.mc.userserver.config.SysLogAspect                       :  232 - <=====================================================
+[2023-06-08 11:06:13.906] [ INFO] com.mc.userserver.config.SysLogAspect                       :  233 - 请求来源： =》127.0.0.1
+[2023-06-08 11:06:13.906] [ INFO] com.mc.userserver.config.SysLogAspect                       :  234 - 请求URL：=》http://localhost:10080/Village/add
+[2023-06-08 11:06:13.906] [ INFO] com.mc.userserver.config.SysLogAspect                       :  235 - 操作设备：=》ApiPOST Runtime +https://www.apipost.cn
+[2023-06-08 11:06:13.906] [ INFO] com.mc.userserver.config.SysLogAspect                       :  236 - 请求参数：=》{data={villageId=0a2588b50b9f4fe486ba109e9a568dcc, userId=156a3a438f4f49ddb12aeacf614d4257, isAdd=1}}
+[2023-06-08 11:06:13.906] [ INFO] com.mc.userserver.config.SysLogAspect                       :  237 - 返回数据：=》200
+[2023-06-08 11:06:13.907] [ INFO] com.mc.userserver.config.SysLogAspect                       :  238 - 执行描述：=》用户-操作-加入村庄成功
+[2023-06-08 11:06:13.907] [ INFO] com.mc.userserver.config.SysLogAspect                       :  239 - costTime: {}ms =>412ms
+[2023-06-08 11:06:13.907] [ INFO] com.mc.userserver.config.SysLogAspect                       :  240 - ------------------------------------------------------
+[2023-06-08 11:06:13.910] [ INFO] com.mc.common.utils.MyMetaObjecthandler                     :   19 - 公共字段自动填充[insert]...
+[2023-06-08 11:06:56.390] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   65 - Unregistering application USER-SERVER with eureka with status DOWN
+[2023-06-08 11:06:56.391] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193616391, current=DOWN, previous=UP]
+[2023-06-08 11:06:56.391] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 11:06:56.398] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 11:06:56.691] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  218 - Shutting down ExecutorService 'applicationTaskExecutor'
+[2023-06-08 11:06:56.694] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2024 - {dataSource-1} closing ...
+[2023-06-08 11:06:56.698] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2096 - {dataSource-1} closed
+[2023-06-08 11:06:56.827] [ INFO] com.netflix.discovery.DiscoveryClient                       :  935 - Shutting down DiscoveryClient ...
+[2023-06-08 11:06:59.832] [ WARN] com.netflix.discovery.TimedSupervisorTask                   :   90 - task supervisor shutting down, can't accept the task
+[2023-06-08 11:06:59.833] [ INFO] com.netflix.discovery.DiscoveryClient                       :  971 - Unregistering ...
+[2023-06-08 11:06:59.848] [ INFO] com.netflix.discovery.DiscoveryClient                       :  973 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - deregister  status: 200
+[2023-06-08 11:06:59.856] [ INFO] com.netflix.discovery.DiscoveryClient                       :  960 - Completed shut down of DiscoveryClient
+[2023-06-08 11:07:06.930] [ INFO] org.hibernate.validator.internal.util.Version               :   21 - HV000001: Hibernate Validator 6.1.7.Final
+[2023-06-08 11:07:08.687] [ INFO] com.mc.userserver.UserServerApplication                     :  648 - No active profile set, falling back to default profiles: default
+[2023-06-08 11:07:09.261] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  249 - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2023-06-08 11:07:09.263] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  127 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2023-06-08 11:07:09.288] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  187 - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+[2023-06-08 11:07:09.534] [ INFO] org.springframework.cloud.context.scope.GenericScope        :  295 - BeanFactory id=ffdff769-0e92-3833-9d54-748daa22936f
+[2023-06-08 11:07:09.737] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:07:09.738] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:07:09.740] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:07:09.987] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  108 - Tomcat initialized with port(s): 10080 (http)
+[2023-06-08 11:07:09.995] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Initializing ProtocolHandler ["http-nio-10080"]
+[2023-06-08 11:07:09.995] [ INFO] org.apache.catalina.core.StandardService                    :  173 - Starting service [Tomcat]
+[2023-06-08 11:07:09.996] [ INFO] org.apache.catalina.core.StandardEngine                     :  173 - Starting Servlet engine: [Apache Tomcat/9.0.46]
+[2023-06-08 11:07:10.105] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring embedded WebApplicationContext
+[2023-06-08 11:07:10.106] [ INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:  285 - Root WebApplicationContext: initialization completed in 1408 ms
+[2023-06-08 11:07:10.464] [ INFO] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure:   56 - Init DruidDataSource
+[2023-06-08 11:07:10.570] [ INFO] com.alibaba.druid.pool.DruidDataSource                      :  983 - {dataSource-1} inited
+[2023-06-08 11:07:11.601] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 11:07:11.601] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 11:07:11.605] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 11:07:11.606] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 11:07:11.798] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  181 - Initializing ExecutorService 'applicationTaskExecutor'
+[2023-06-08 11:07:11.881] [ INFO] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping:   53 - Adding welcome page: class path resource [static/index.html]
+[2023-06-08 11:07:13.402] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:07:13.438] [ INFO] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration:   78 - Eureka HTTP Client uses Jersey
+[2023-06-08 11:07:14.745] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:07:16.019] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:07:16.044] [ WARN] org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger:  106 - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 11:07:16.059] [ WARN] org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger:   83 - You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 11:07:16.149] [ INFO] org.springframework.cloud.netflix.eureka.InstanceInfoFactory:   72 - Setting initial instance status as: STARTING
+[2023-06-08 11:07:16.178] [ INFO] com.netflix.discovery.DiscoveryClient                       :  372 - Initializing Eureka in region us-east-1
+[2023-06-08 11:07:16.517] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   70 - Using JSON encoding codec LegacyJacksonJson
+[2023-06-08 11:07:16.517] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   71 - Using JSON decoding codec LegacyJacksonJson
+[2023-06-08 11:07:16.611] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   80 - Using XML encoding codec XStreamXml
+[2023-06-08 11:07:16.611] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   81 - Using XML decoding codec XStreamXml
+[2023-06-08 11:07:16.826] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-08 11:07:16.840] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1007 - Disable delta property : false
+[2023-06-08 11:07:16.841] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1008 - Single vip registry refresh property : null
+[2023-06-08 11:07:16.841] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1009 - Force full registry fetch : false
+[2023-06-08 11:07:16.841] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1010 - Application is null : false
+[2023-06-08 11:07:16.841] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1011 - Registered Applications size is zero : true
+[2023-06-08 11:07:16.841] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1013 - Application version is -1: true
+[2023-06-08 11:07:16.841] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1097 - Getting all instance registry info from the eureka server
+[2023-06-08 11:07:17.138] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1106 - The response status is 200
+[2023-06-08 11:07:17.140] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1321 - Starting heartbeat executor: renew interval is: 30
+[2023-06-08 11:07:17.142] [ INFO] com.netflix.discovery.InstanceInfoReplicator                :   60 - InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2023-06-08 11:07:17.145] [ INFO] com.netflix.discovery.DiscoveryClient                       :  492 - Discovery Client initialized at timestamp 1686193637144 with initial instances count: 1
+[2023-06-08 11:07:17.149] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   41 - Registering application USER-SERVER with eureka with status UP
+[2023-06-08 11:07:17.150] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193637150, current=UP, previous=STARTING]
+[2023-06-08 11:07:17.152] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 11:07:17.152] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Starting ProtocolHandler ["http-nio-10080"]
+[2023-06-08 11:07:17.174] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  220 - Tomcat started on port(s): 10080 (http) with context path ''
+[2023-06-08 11:07:17.174] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration:  145 - Updating port to 10080
+[2023-06-08 11:07:17.201] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 11:07:18.439] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:07:19.708] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:07:19.716] [ INFO] com.mc.userserver.UserServerApplication                     :   61 - Started UserServerApplication in 14.544 seconds (JVM running for 15.639)
+[2023-06-08 11:07:25.078] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2023-06-08 11:07:25.078] [ INFO] org.springframework.web.servlet.DispatcherServlet           :  525 - Initializing Servlet 'dispatcherServlet'
+[2023-06-08 11:07:25.088] [ INFO] org.springframework.web.servlet.DispatcherServlet           :  547 - Completed initialization in 10 ms
+[2023-06-08 11:07:27.273] [ INFO] com.mc.common.utils.MyMetaObjecthandler                     :   19 - 公共字段自动填充[insert]...
+[2023-06-08 11:07:27.353] [ INFO] com.mc.userserver.config.SysLogAspect                       :  232 - <=====================================================
+[2023-06-08 11:07:27.354] [ INFO] com.mc.userserver.config.SysLogAspect                       :  233 - 请求来源： =》127.0.0.1
+[2023-06-08 11:07:27.354] [ INFO] com.mc.userserver.config.SysLogAspect                       :  234 - 请求URL：=》http://localhost:10080/Village/add
+[2023-06-08 11:07:27.354] [ INFO] com.mc.userserver.config.SysLogAspect                       :  235 - 操作设备：=》ApiPOST Runtime +https://www.apipost.cn
+[2023-06-08 11:07:27.354] [ INFO] com.mc.userserver.config.SysLogAspect                       :  236 - 请求参数：=》{data={villageId=0a2588b50b9f4fe486ba109e9a568dcc, userId=156a3a438f4f49ddb12aeacf614d4257, isAdd=1}}
+[2023-06-08 11:07:27.354] [ INFO] com.mc.userserver.config.SysLogAspect                       :  237 - 返回数据：=》200
+[2023-06-08 11:07:27.354] [ INFO] com.mc.userserver.config.SysLogAspect                       :  238 - 执行描述：=》用户-操作-加入村庄成功
+[2023-06-08 11:07:27.355] [ INFO] com.mc.userserver.config.SysLogAspect                       :  239 - costTime: {}ms =>1418ms
+[2023-06-08 11:07:27.355] [ INFO] com.mc.userserver.config.SysLogAspect                       :  240 - ------------------------------------------------------
+[2023-06-08 11:07:27.358] [ INFO] com.mc.common.utils.MyMetaObjecthandler                     :   19 - 公共字段自动填充[insert]...
+[2023-06-08 11:07:56.496] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   65 - Unregistering application USER-SERVER with eureka with status DOWN
+[2023-06-08 11:07:56.496] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193676496, current=DOWN, previous=UP]
+[2023-06-08 11:07:56.497] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 11:07:56.519] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 11:07:56.787] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  218 - Shutting down ExecutorService 'applicationTaskExecutor'
+[2023-06-08 11:07:56.790] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2024 - {dataSource-1} closing ...
+[2023-06-08 11:07:56.796] [ INFO] com.alibaba.druid.pool.DruidDataSource                      : 2096 - {dataSource-1} closed
+[2023-06-08 11:07:56.922] [ INFO] com.netflix.discovery.DiscoveryClient                       :  935 - Shutting down DiscoveryClient ...
+[2023-06-08 11:07:59.931] [ INFO] com.netflix.discovery.DiscoveryClient                       :  971 - Unregistering ...
+[2023-06-08 11:07:59.946] [ INFO] com.netflix.discovery.DiscoveryClient                       :  973 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - deregister  status: 200
+[2023-06-08 11:07:59.958] [ INFO] com.netflix.discovery.DiscoveryClient                       :  960 - Completed shut down of DiscoveryClient
+[2023-06-08 11:08:06.879] [ INFO] org.hibernate.validator.internal.util.Version               :   21 - HV000001: Hibernate Validator 6.1.7.Final
+[2023-06-08 11:08:08.641] [ INFO] com.mc.userserver.UserServerApplication                     :  648 - No active profile set, falling back to default profiles: default
+[2023-06-08 11:08:09.207] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  249 - Multiple Spring Data modules found, entering strict repository configuration mode!
+[2023-06-08 11:08:09.209] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  127 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2023-06-08 11:08:09.234] [ INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate:  187 - Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+[2023-06-08 11:08:09.477] [ INFO] org.springframework.cloud.context.scope.GenericScope        :  295 - BeanFactory id=ffdff769-0e92-3833-9d54-748daa22936f
+[2023-06-08 11:08:09.678] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:08:09.679] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:08:09.681] [ INFO] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:  335 - Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2023-06-08 11:08:09.930] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  108 - Tomcat initialized with port(s): 10080 (http)
+[2023-06-08 11:08:09.937] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Initializing ProtocolHandler ["http-nio-10080"]
+[2023-06-08 11:08:09.938] [ INFO] org.apache.catalina.core.StandardService                    :  173 - Starting service [Tomcat]
+[2023-06-08 11:08:09.938] [ INFO] org.apache.catalina.core.StandardEngine                     :  173 - Starting Servlet engine: [Apache Tomcat/9.0.46]
+[2023-06-08 11:08:10.055] [ INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:  173 - Initializing Spring embedded WebApplicationContext
+[2023-06-08 11:08:10.055] [ INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:  285 - Root WebApplicationContext: initialization completed in 1400 ms
+[2023-06-08 11:08:10.428] [ INFO] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure:   56 - Init DruidDataSource
+[2023-06-08 11:08:10.544] [ INFO] com.alibaba.druid.pool.DruidDataSource                      :  983 - {dataSource-1} inited
+[2023-06-08 11:08:11.683] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 11:08:11.684] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 11:08:11.687] [ WARN] com.netflix.config.sources.URLConfigurationSource           :  126 - No URLs will be polled as dynamic configuration sources.
+[2023-06-08 11:08:11.688] [ INFO] com.netflix.config.sources.URLConfigurationSource           :  127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2023-06-08 11:08:11.882] [ INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:  181 - Initializing ExecutorService 'applicationTaskExecutor'
+[2023-06-08 11:08:11.968] [ INFO] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping:   53 - Adding welcome page: class path resource [static/index.html]
+[2023-06-08 11:08:13.520] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:08:13.558] [ INFO] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration:   78 - Eureka HTTP Client uses Jersey
+[2023-06-08 11:08:14.883] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:08:16.192] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:08:16.216] [ WARN] org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger:  106 - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 11:08:16.233] [ WARN] org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerClientAutoConfiguration$ReactorLoadBalancerClientRibbonWarnLogger:   83 - You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2023-06-08 11:08:16.324] [ INFO] org.springframework.cloud.netflix.eureka.InstanceInfoFactory:   72 - Setting initial instance status as: STARTING
+[2023-06-08 11:08:16.352] [ INFO] com.netflix.discovery.DiscoveryClient                       :  372 - Initializing Eureka in region us-east-1
+[2023-06-08 11:08:16.751] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   70 - Using JSON encoding codec LegacyJacksonJson
+[2023-06-08 11:08:16.752] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   71 - Using JSON decoding codec LegacyJacksonJson
+[2023-06-08 11:08:16.844] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   80 - Using XML encoding codec XStreamXml
+[2023-06-08 11:08:16.844] [ INFO] com.netflix.discovery.provider.DiscoveryJerseyProvider      :   81 - Using XML decoding codec XStreamXml
+[2023-06-08 11:08:17.084] [ INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver:   43 - Resolving eureka endpoints via configuration
+[2023-06-08 11:08:17.100] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1007 - Disable delta property : false
+[2023-06-08 11:08:17.100] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1008 - Single vip registry refresh property : null
+[2023-06-08 11:08:17.100] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1009 - Force full registry fetch : false
+[2023-06-08 11:08:17.100] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1010 - Application is null : false
+[2023-06-08 11:08:17.100] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1011 - Registered Applications size is zero : true
+[2023-06-08 11:08:17.100] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1013 - Application version is -1: true
+[2023-06-08 11:08:17.100] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1097 - Getting all instance registry info from the eureka server
+[2023-06-08 11:08:17.388] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1106 - The response status is 200
+[2023-06-08 11:08:17.392] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1321 - Starting heartbeat executor: renew interval is: 30
+[2023-06-08 11:08:17.394] [ INFO] com.netflix.discovery.InstanceInfoReplicator                :   60 - InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2023-06-08 11:08:17.398] [ INFO] com.netflix.discovery.DiscoveryClient                       :  492 - Discovery Client initialized at timestamp 1686193697397 with initial instances count: 1
+[2023-06-08 11:08:17.402] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry:   41 - Registering application USER-SERVER with eureka with status UP
+[2023-06-08 11:08:17.402] [ INFO] com.netflix.discovery.DiscoveryClient                       : 1352 - Saw local status change event StatusChangeEvent [timestamp=1686193697402, current=UP, previous=STARTING]
+[2023-06-08 11:08:17.405] [ INFO] com.netflix.discovery.DiscoveryClient                       :  873 - DiscoveryClient_USER-SERVER/localhost:user-server:10080: registering service...
+[2023-06-08 11:08:17.405] [ INFO] org.apache.coyote.http11.Http11NioProtocol                  :  173 - Starting ProtocolHandler ["http-nio-10080"]
+[2023-06-08 11:08:17.426] [ INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:  220 - Tomcat started on port(s): 10080 (http) with context path ''
+[2023-06-08 11:08:17.427] [ INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration:  145 - Updating port to 10080
+[2023-06-08 11:08:17.447] [ INFO] com.netflix.discovery.DiscoveryClient                       :  882 - DiscoveryClient_USER-SERVER/localhost:user-server:10080 - registration status: 204
+[2023-06-08 11:08:18.713] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:08:19.980] [ INFO] org.springframework.cloud.commons.util.InetUtils            :  170 - Cannot determine local hostname
+[2023-06-08 11:08:19.989] [ INFO] com.mc.userserver.UserServerApplication                     :   61 - Started UserServerApplication in 14.911 seconds (JVM running for 16.059)

@@ -2,6 +2,7 @@ package com.mc.userserver.service.impl;
 
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mc.common.utils.R;
 import com.mc.common.utils.VillageOrAppellationContants;
@@ -16,6 +17,7 @@ import com.mc.userserver.service.VillageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 import java.util.Random;
@@ -60,6 +62,7 @@ public class VillageServiceImpl extends ServiceImpl<VillageMapper, VillageTable>
     }
 
     @Override
+    @Transactional
     public R<VillageUserTable> addIntoVillage(Map<Object,String> data) {
         /**
          * 用户加入村庄,对应村庄人数增加
@@ -87,6 +90,12 @@ public class VillageServiceImpl extends ServiceImpl<VillageMapper, VillageTable>
         villageUser.setVillageUserAppellation(APPELATION_NAME_1);
         villageUser.setVillageUserAppellationDesc(APPELATION_DESC_1);
         villageUserMapper.insert(villageUser);
+        LambdaUpdateWrapper<VillageTable> UpdateWrapper = new LambdaUpdateWrapper<>();
+        UpdateWrapper.setSql("village_user_Number = village_user_Number + 1").eq(VillageTable::getVillageId,data.get("villageId"));
+        this.update(UpdateWrapper);
+
         return R.success(villageUser);
     }
+
+
 }
