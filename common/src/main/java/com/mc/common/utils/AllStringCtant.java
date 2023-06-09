@@ -8,6 +8,7 @@ package com.mc.common.utils;
  * @修改记录：
  */
 public class AllStringCtant {
+    public static final String IMAGE_UPLOAD_DIR = "D:\\lesson\\nginx-1.18.0\\html\\hmdp\\imgs\\";
     public static final String DEFAULT_USER_INTRODUCTION = "这个人很懒,什么都没有留下";
     public static final String DEFAULT_SCHOOL = "未知";
     public static final String COMMON_NUMBER_ZERO = "0";
