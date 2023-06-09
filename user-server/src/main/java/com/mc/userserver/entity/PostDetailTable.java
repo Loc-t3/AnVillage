@@ -36,6 +36,8 @@ public class PostDetailTable {
     private String postFavoriteCount;
     private String postShareCount;
     private String postWeight;
+    private String isDelete;
+    private String version;
 
 
     @TableField(fill = FieldFill.INSERT)
