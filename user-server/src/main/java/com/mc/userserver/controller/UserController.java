@@ -167,8 +167,9 @@ public class UserController {
         if (user==null){
             return R.error("该用户账号不存在！");
         }
+         userService.login(user, request);
 
-        return userService.login(user,request);
+        return R.success("登录成功");
 
 
     }

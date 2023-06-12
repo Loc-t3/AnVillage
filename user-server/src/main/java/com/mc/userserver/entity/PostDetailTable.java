@@ -23,12 +23,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PostDetailTable {
     @TableId
-    private String postDtailId;
+    private String postDetailId;
     private String postTypeCode;
     private String userId;
     private String postTitle;
     private String postContent;
     private String postImage;
+    private String postLabel;
 
     private String postPublishPosition;
     private String postLikeCount;
@@ -37,7 +38,7 @@ public class PostDetailTable {
     private String postShareCount;
     private String postWeight;
     private String isDelete;
-    private String version;
+    private Integer version;
 
 
     @TableField(fill = FieldFill.INSERT)

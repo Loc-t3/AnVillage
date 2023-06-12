@@ -77,7 +77,7 @@ if (type.equals(COMMON_NUMBER_ZERO)){
      * @return
      */
     @Override
-    public R<String> login(UserTable user, HttpServletRequest request) {
+    public void login(UserTable user, HttpServletRequest request) {
 /*放在Controller层中
         UserTable user = null;
         //对密码进行加密
@@ -130,8 +130,8 @@ if (type.equals(COMMON_NUMBER_ZERO)){
 
 
 
-        // 8返回token
-        return R.success(tokenkey);
+        // 8返回token return R.success(tokenkey);
+
 
     }
 

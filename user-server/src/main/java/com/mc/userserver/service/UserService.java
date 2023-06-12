@@ -31,7 +31,7 @@ public interface UserService extends IService<UserTable> {
      * @return
      */
 
-    R<String> login(UserTable user, HttpServletRequest request);
+    void login(UserTable user, HttpServletRequest request);
 
 
     /**
