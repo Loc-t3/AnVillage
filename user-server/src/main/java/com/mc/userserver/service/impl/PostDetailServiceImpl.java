@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.mc.common.utils.AllStringCtant.COMMON_NUMBER_ONE;
 import static com.mc.common.utils.AllStringCtant.COMMON_NUMBER_ZERO;
 import static com.mc.common.utils.UserCommon.setUUId;
 
@@ -58,6 +59,27 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
         }
 
 
+        return success;
+    }
+
+    @Override
+    public Boolean deletePost(String type, String postDetailId) {
+        Boolean success = false;
+        if (type.equals(COMMON_NUMBER_ONE)){
+            success = removeById(postDetailId);
+        }
+        //逻辑删除
+        //判断当前逻辑删除状态
+        if (type.equals(COMMON_NUMBER_ZERO)){
+            PostDetailTable postDetail = getById(postDetailId);
+            if (postDetail.getIsDelete().equals(COMMON_NUMBER_ZERO)){
+                postDetail.setIsDelete(COMMON_NUMBER_ONE);
+            }else {
+                postDetail.setIsDelete(COMMON_NUMBER_ZERO);
+            }
+            success = updateById(postDetail);
+
+        }
         return success;
     }
 }

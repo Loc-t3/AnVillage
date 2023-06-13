@@ -12,4 +12,6 @@ import com.mc.userserver.entity.PostDetailTable;
  */
 public interface PostDetailService extends IService<PostDetailTable> {
     Boolean editPost(PostDetailTable postDetail,String type);
+
+    Boolean deletePost(String type, String postDetailId);
 }

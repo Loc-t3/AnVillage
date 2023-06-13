@@ -9,10 +9,7 @@ import com.mc.userserver.entity.PostDetailTable;
 import com.mc.userserver.filter.BaseContext;
 import com.mc.userserver.service.PostDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
@@ -36,6 +33,8 @@ public class PostController {
     /**
      * * 获取用户发布定位选择
      *      * 获取用户发布帖子信息 title img body label
+     *      type 0- 新增
+     *      type 1 - 修改
      * @param data
      * @return
      */
@@ -52,10 +51,27 @@ public class PostController {
         if (((String) data.get("type")).equals(COMMON_NUMBER_ONE)){
             return R.success("更新成功");
         }
-
-
-
         return R.success("发布成功");
+    }
+
+    /**
+     * 通过帖子id和类型判断删除情况
+     * 并依据已有的数据判断是否隐藏
+     * 如果愿意数据 isdelete 是 0，进行逻辑删除时修改为 1
+     * isdelete 是 1，进行逻辑删除时修改为 0
+     * @param type
+     * @param postDetailId
+     * @return
+     */
+    @PutMapping("/{postDetailId}/{type}")
+    @SysLog(value = "#{'用户-操作-删除帖子'}",level = "info", printResult = 0)
+    public R<String> deletePost(@PathVariable String type,@PathVariable String postDetailId){
+        Boolean success = postDetailService.deletePost(type, postDetailId);
+        if (!success){
+            return R.error("删除失败，请稍后再试");
+        }
+
+        return R.success("删除成功");
     }
 
 
