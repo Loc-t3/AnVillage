@@ -1,20 +1,23 @@
 package com.mc.userserver.service.impl;
 
+import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mc.common.utils.R;
 import com.mc.common.utils.VillageOrAppellationEnum;
 import com.mc.userserver.entity.PostDetailTable;
+import com.mc.userserver.entity.PostLikeTable;
 import com.mc.userserver.filter.BaseContext;
 import com.mc.userserver.mapper.PostDetailMapper;
+import com.mc.userserver.mapper.PostLikeMapper;
 import com.mc.userserver.service.PostDetailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
-import static com.mc.common.utils.AllStringCtant.COMMON_NUMBER_ONE;
-import static com.mc.common.utils.AllStringCtant.COMMON_NUMBER_ZERO;
+import static com.mc.common.utils.AllStringCtant.*;
 import static com.mc.common.utils.UserCommon.setUUId;
 
 /**
@@ -29,6 +32,10 @@ import static com.mc.common.utils.UserCommon.setUUId;
 public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDetailTable> implements PostDetailService {
     @Autowired
     private PostDetailService postDetailService;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    private PostLikeMapper postLikeMapper;
     @Override
     public Boolean editPost(PostDetailTable postDetail,String type) {
         boolean success = false;
@@ -82,4 +89,53 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
         }
         return success;
     }
+
+    @Override
+    public R<String> activeLike(String postDetailId) {
+        //获取当前用户
+        String userId = BaseContext.getUser().getUserId();
+        boolean success = false;
+        //点赞
+        //通过id获取当前数据
+        String key = ACTIVE_LIKE + postDetailId;
+        Boolean isMember = stringRedisTemplate.opsForSet().isMember(key, userId);
+        //在redis中进行判断
+        //不存在，进行添加-实现用户已点赞
+        if (BooleanUtil.isFalse(isMember)){
+            //post_detail_table点赞数量添加
+            success = update().setSql("post_like_count = post_like_count + 1").eq("post_detail_id", postDetailId).update();
+            if (success) {
+                //点赞维护表数据新增
+                PostLikeTable postLikeTable = new PostLikeTable();
+                postLikeTable.setLikeId(setUUId());
+                postLikeTable.setLikePostId(postDetailId);
+                postLikeTable.setLikeUserId(userId);
+                postLikeMapper.insert(postLikeTable);
+
+                //redis添加
+                stringRedisTemplate.opsForSet().add(key, userId);
+            }
+
+
+        }
+
+        //存在，进行删除-实现用户取消点赞
+        if (BooleanUtil.isTrue(isMember)){
+            //数据库点赞数量添加
+            success = update().setSql("post_like_count = post_like_count - 1").eq("post_detail_id", postDetailId).update();
+            if (success) {
+                //点赞维护表数据删除
+                LambdaQueryWrapper<PostLikeTable> queryWrapper = new LambdaQueryWrapper<>();
+                queryWrapper.eq(PostLikeTable::getLikePostId,postDetailId).eq(PostLikeTable::getLikeUserId,userId);
+                String likeId = postLikeMapper.selectOne(queryWrapper).getLikeId();
+                postLikeMapper.deleteById(likeId);
+                //redis添加
+                stringRedisTemplate.opsForSet().remove(key, userId);
+            }
+            return R.success("取消点赞成功");
+
+        }
+        return R.success("点赞成功");
+    }
+
 }

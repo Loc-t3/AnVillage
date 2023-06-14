@@ -23,8 +23,7 @@ public class PostLikeTable {
     @TableId
     private String likeId;
     private String likePostId;
-    private String belikeUserId;
-    private String likeStatus;
+    private String likeUserId;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
@@ -38,4 +37,6 @@ public class PostLikeTable {
     private String attribute03;
     private String attribute04;
     private String attribute05;
+
+
 }

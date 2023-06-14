@@ -74,5 +74,21 @@ public class PostController {
         return R.success("删除成功");
     }
 
+    /**
+     * 对用户的发帖进行点赞
+     * @param postDetailId
+     * @return
+     */
+    @PostMapping("/like/{postDetailId}")
+    @SysLog(value = "#{'用户-操作-点赞帖子'}",level = "info", printResult = 0)
+    public R<String> activeLike(@PathVariable String postDetailId){
+
+
+
+        return postDetailService.activeLike(postDetailId);
+    }
+
+
+
 
 }

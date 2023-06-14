@@ -11,6 +11,7 @@ public class AllStringCtant {
     public static final String IMAGE_UPLOAD_DIR = "D:\\lesson\\nginx-1.18.0\\html\\hmdp\\imgs\\";
     public static final String DEFAULT_USER_INTRODUCTION = "这个人很懒,什么都没有留下";
     public static final String DEFAULT_SCHOOL = "未知";
+    public static final String ACTIVE_LIKE = "active:like:";
     public static final String COMMON_NUMBER_ZERO = "0";
     public static final String COMMON_NUMBER_ONE = "1";
     public static final String COMMON_NUMBER_THREE = "3";

@@ -1,6 +1,7 @@
 package com.mc.userserver.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mc.common.utils.R;
 import com.mc.userserver.entity.PostDetailTable;
 
 /**
@@ -14,4 +15,6 @@ public interface PostDetailService extends IService<PostDetailTable> {
     Boolean editPost(PostDetailTable postDetail,String type);
 
     Boolean deletePost(String type, String postDetailId);
+
+    R<String> activeLike(String postDetailId);
 }
