@@ -12,6 +12,8 @@ public class AllStringCtant {
     public static final String DEFAULT_USER_INTRODUCTION = "这个人很懒,什么都没有留下";
     public static final String DEFAULT_SCHOOL = "未知";
     public static final String ACTIVE_LIKE = "active:like:";
+    public static final String ACTIVE_FAVORITE = "active:favorite:";
+    public static final String ACTIVE_SHARE = "active:share:";
     public static final String COMMON_NUMBER_ZERO = "0";
     public static final String COMMON_NUMBER_ONE = "1";
     public static final String COMMON_NUMBER_THREE = "3";

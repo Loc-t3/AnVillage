@@ -17,4 +17,8 @@ public interface PostDetailService extends IService<PostDetailTable> {
     Boolean deletePost(String type, String postDetailId);
 
     R<String> activeLike(String postDetailId);
+
+    R<String> activeFavorite(String postDetailId);
+
+    R<String> activeShare(String postDetailId);
 }

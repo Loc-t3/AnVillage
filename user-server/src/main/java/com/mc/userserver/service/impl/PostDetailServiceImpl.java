@@ -7,15 +7,20 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mc.common.utils.R;
 import com.mc.common.utils.VillageOrAppellationEnum;
 import com.mc.userserver.entity.PostDetailTable;
+import com.mc.userserver.entity.PostFavoriteTable;
 import com.mc.userserver.entity.PostLikeTable;
+import com.mc.userserver.entity.PostShareTable;
 import com.mc.userserver.filter.BaseContext;
 import com.mc.userserver.mapper.PostDetailMapper;
+import com.mc.userserver.mapper.PostFavoriteMapper;
 import com.mc.userserver.mapper.PostLikeMapper;
+import com.mc.userserver.mapper.PostShareMapper;
 import com.mc.userserver.service.PostDetailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.mc.common.utils.AllStringCtant.*;
 import static com.mc.common.utils.UserCommon.setUUId;
@@ -36,6 +41,10 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
     private PostLikeMapper postLikeMapper;
+    @Autowired
+    private PostFavoriteMapper postFavoriteMapper;
+    @Autowired
+    private PostShareMapper postShareMapper;
     @Override
     public Boolean editPost(PostDetailTable postDetail,String type) {
         boolean success = false;
@@ -91,6 +100,7 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
     }
 
     @Override
+    @Transactional()
     public R<String> activeLike(String postDetailId) {
         //获取当前用户
         String userId = BaseContext.getUser().getUserId();
@@ -107,7 +117,7 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
             if (success) {
                 //点赞维护表数据新增
                 PostLikeTable postLikeTable = new PostLikeTable();
-                postLikeTable.setLikeId(setUUId());
+//                postLikeTable.setLikeId(setUUId());
                 postLikeTable.setLikePostId(postDetailId);
                 postLikeTable.setLikeUserId(userId);
                 postLikeMapper.insert(postLikeTable);
@@ -127,7 +137,7 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
                 //点赞维护表数据删除
                 LambdaQueryWrapper<PostLikeTable> queryWrapper = new LambdaQueryWrapper<>();
                 queryWrapper.eq(PostLikeTable::getLikePostId,postDetailId).eq(PostLikeTable::getLikeUserId,userId);
-                String likeId = postLikeMapper.selectOne(queryWrapper).getLikeId();
+                Integer likeId = postLikeMapper.selectOne(queryWrapper).getLikeId();
                 postLikeMapper.deleteById(likeId);
                 //redis添加
                 stringRedisTemplate.opsForSet().remove(key, userId);
@@ -136,6 +146,102 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
 
         }
         return R.success("点赞成功");
+    }
+
+    @Override
+    @Transactional
+    public R<String> activeFavorite(String postDetailId) {
+        //获取当前用户
+        String userId = BaseContext.getUser().getUserId();
+        boolean success = false;
+        //点赞
+        //通过id获取当前数据
+        String key = ACTIVE_FAVORITE + postDetailId;
+        Boolean isMember = stringRedisTemplate.opsForSet().isMember(key, userId);
+        //在redis中进行判断
+        //不存在，进行添加-实现用户已收藏
+        if (BooleanUtil.isFalse(isMember)){
+            //post_detail_table收藏数量添加
+            success = update().setSql("post_favorite_count = post_favorite_count + 1").eq("post_detail_id", postDetailId).update();
+            if (success) {
+                //收藏维护表数据新增
+                PostFavoriteTable postFavoriteTable = new PostFavoriteTable();
+//                postLikeTable.setLikeId(setUUId());
+                postFavoriteTable.setFavoritePostId(postDetailId);
+                postFavoriteTable.setFavoriteUserId(userId);
+                postFavoriteMapper.insert(postFavoriteTable);
+
+                //redis添加
+                stringRedisTemplate.opsForSet().add(key, userId);
+            }
+
+
+        }
+
+        //存在，进行删除-实现用户取消收藏
+        if (BooleanUtil.isTrue(isMember)){
+            //数据库点赞数量添加
+            success = update().setSql("post_favorite_count = post_favorite_count - 1").eq("post_detail_id", postDetailId).update();
+            if (success) {
+                //点赞维护表数据删除
+                LambdaQueryWrapper<PostFavoriteTable> queryWrapper = new LambdaQueryWrapper<>();
+                queryWrapper.eq(PostFavoriteTable::getFavoritePostId,postDetailId).eq(PostFavoriteTable::getFavoriteUserId,userId);
+                Integer likeId = postFavoriteMapper.selectOne(queryWrapper).getFavoriteId();
+                postFavoriteMapper.deleteById(likeId);
+                //redis删除
+                stringRedisTemplate.opsForSet().remove(key, userId);
+            }
+            return R.success("取消收藏成功");
+
+        }
+        return R.success("收藏成功");
+    }
+
+    @Override
+    @Transactional
+    public R<String> activeShare(String postDetailId) {
+        //获取当前用户
+        String userId = BaseContext.getUser().getUserId();
+        boolean success = false;
+        //点赞
+        //通过id获取当前数据
+        String key = ACTIVE_SHARE + postDetailId;
+        Boolean isMember = stringRedisTemplate.opsForSet().isMember(key, userId);
+        //在redis中进行判断
+        //不存在，进行添加-实现用户已分享
+        if (BooleanUtil.isFalse(isMember)){
+            //post_detail_table收藏数量添加
+            success = update().setSql("post_share_count = post_share_count + 1").eq("post_detail_id", postDetailId).update();
+            if (success) {
+                //收藏维护表数据新增
+                PostShareTable postShareTable = new PostShareTable();
+//                postLikeTable.setLikeId(setUUId());
+                postShareTable.setSharePostId(postDetailId);
+                postShareTable.setShareUserId(userId);
+                postShareMapper.insert(postShareTable);
+
+                //redis添加
+                stringRedisTemplate.opsForSet().add(key, userId);
+            }
+
+        }
+
+        //存在，进行删除-实现用户取消分享 可不实现
+       /* if (BooleanUtil.isTrue(isMember)){
+            //数据库点赞数量添加
+            success = update().setSql("post_share_count = post_share_count - 1").eq("post_detail_id", postDetailId).update();
+            if (success) {
+                //点赞维护表数据删除
+                LambdaQueryWrapper<PostShareTable> queryWrapper = new LambdaQueryWrapper<>();
+                queryWrapper.eq(PostShareTable::getSharePostId,postDetailId).eq(PostShareTable::getShareUserId,userId);
+                Integer shareId = postShareMapper.selectOne(queryWrapper).getShareId();
+                postFavoriteMapper.deleteById(shareId);
+                //redis删除
+                stringRedisTemplate.opsForSet().remove(key, userId);
+            }
+
+        }*/
+        return R.success("分享成功");
     }
 
 }

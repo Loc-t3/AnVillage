@@ -1,6 +1,7 @@
 package com.mc.userserver.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
@@ -20,9 +21,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostFavoriteTable {
-    @TableId
-    private String favoriteId;
+    @TableId(type = IdType.AUTO)
+    private Integer favoriteId;
     private String favoritePostId;
+    private String favoriteUserId;
     private String befavoriteUserId;
     private String favoriteStatus;
 

@@ -24,9 +24,9 @@ public enum VillageOrAppellationEnum {
     VILLAGENAME10("10","敬业"),
     VILLAGENAME11("11","诚信"),
     VILLAGENAME12("12","友善"),
-    POSTPOSITON0("0","世界"),
-        POSTPOSITION1("1","村庄"),
-        POSTPOSITION2("2","同时发布");
+    POSTPOSITON0("13","世界"),
+        POSTPOSITION1("14","村庄"),
+        POSTPOSITION2("15","同时发布");
 
     private final String code;
     private final String name;

@@ -1,6 +1,7 @@
 package com.mc.userserver.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
@@ -20,8 +21,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostLikeTable {
-    @TableId
-    private String likeId;
+    @TableId(type = IdType.AUTO)
+    private Integer likeId;
     private String likePostId;
     private String likeUserId;
 

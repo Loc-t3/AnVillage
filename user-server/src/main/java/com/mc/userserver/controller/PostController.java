@@ -83,10 +83,34 @@ public class PostController {
     @SysLog(value = "#{'用户-操作-点赞帖子'}",level = "info", printResult = 0)
     public R<String> activeLike(@PathVariable String postDetailId){
 
-
-
         return postDetailService.activeLike(postDetailId);
     }
+
+    /**
+     * 对用户的发帖进行收藏
+     * @param postDetailId
+     * @return
+     */
+    @PostMapping("/favorite/{postDetailId}")
+    @SysLog(value = "#{'用户-操作-收藏帖子'}",level = "info", printResult = 0)
+    public R<String> activeFavorite(@PathVariable String postDetailId){
+
+        return postDetailService.activeFavorite(postDetailId);
+    }
+
+    /**
+     * 对用户的发帖进行分享
+     * @param postDetailId
+     * @return
+     */
+    @PostMapping("/share/{postDetailId}")
+    @SysLog(value = "#{'用户-操作-分享帖子'}",level = "info", printResult = 0)
+    public R<String> activeShare(@PathVariable String postDetailId){
+
+        return postDetailService.activeShare(postDetailId);
+    }
+
+
 
 
 
