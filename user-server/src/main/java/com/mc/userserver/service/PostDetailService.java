@@ -2,7 +2,10 @@ package com.mc.userserver.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.mc.common.utils.R;
+import com.mc.userserver.entity.PostCommentTable;
 import com.mc.userserver.entity.PostDetailTable;
+
+import java.util.HashMap;
 
 /**
  * @作者：XMC
@@ -21,4 +24,6 @@ public interface PostDetailService extends IService<PostDetailTable> {
     R<String> activeFavorite(String postDetailId);
 
     R<String> activeShare(String postDetailId);
+
+    HashMap<String,Object> getCommentList(PostCommentTable postComment);
 }

@@ -5,9 +5,15 @@ import cn.hutool.core.util.RandomUtil;
 import com.mc.common.utils.R;
 import com.mc.common.utils.VillageOrAppellationEnum;
 import com.mc.userserver.config.SysLog;
+import com.mc.userserver.dto.CommentDTO;
+import com.mc.userserver.dto.UserDTO;
+import com.mc.userserver.entity.PostCommentTable;
 import com.mc.userserver.entity.PostDetailTable;
+import com.mc.userserver.entity.UserTable;
 import com.mc.userserver.filter.BaseContext;
+import com.mc.userserver.mapper.PostCommentMapper;
 import com.mc.userserver.service.PostDetailService;
+import com.mc.userserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +35,9 @@ import static com.mc.common.utils.UserCommon.setUUId;
 public class PostController {
     @Autowired
     private PostDetailService postDetailService;
+
+    @Autowired
+    private PostCommentMapper postCommentMapper;
 
     /**
      * * 获取用户发布定位选择
@@ -108,6 +117,29 @@ public class PostController {
     public R<String> activeShare(@PathVariable String postDetailId){
 
         return postDetailService.activeShare(postDetailId);
+    }
+
+
+    @PostMapping("/comment")
+    @SysLog(value = "#{'用户-操作-评论帖子'}",level = "info", printResult = 0)
+    public R<String> activeComment(@RequestBody PostCommentTable postComment){
+
+        postComment.setUserId(BaseContext.getUser().getUserId());
+        postCommentMapper.insert(postComment);
+
+        return R.success("评论成功");
+    }
+
+    /**
+     * 获取查看帖子的相关评论
+     * @param postComment
+     * @return
+     */
+    @PostMapping("/commentList")
+    public R<HashMap<String,Object>> getCommentList(@RequestBody PostCommentTable postComment){
+
+        HashMap<String, Object> commentList = postDetailService.getCommentList(postComment);
+        return R.success(commentList);
     }
 
 

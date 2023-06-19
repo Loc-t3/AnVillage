@@ -3,6 +3,7 @@ package com.mc.userserver.config;
 import java.lang.annotation.*;
 
 /**
+ * @author Hu
  * @作者：XMC
  * @邮箱：1309478453@qq.com
  * @创建时间： 2023-06-03 9:41

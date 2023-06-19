@@ -1,26 +1,27 @@
 package com.mc.userserver.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mc.common.utils.R;
 import com.mc.common.utils.VillageOrAppellationEnum;
-import com.mc.userserver.entity.PostDetailTable;
-import com.mc.userserver.entity.PostFavoriteTable;
-import com.mc.userserver.entity.PostLikeTable;
-import com.mc.userserver.entity.PostShareTable;
+import com.mc.userserver.dto.UserDTO;
+import com.mc.userserver.entity.*;
 import com.mc.userserver.filter.BaseContext;
-import com.mc.userserver.mapper.PostDetailMapper;
-import com.mc.userserver.mapper.PostFavoriteMapper;
-import com.mc.userserver.mapper.PostLikeMapper;
-import com.mc.userserver.mapper.PostShareMapper;
+import com.mc.userserver.mapper.*;
 import com.mc.userserver.service.PostDetailService;
+import com.mc.userserver.service.UserService;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
 
 import static com.mc.common.utils.AllStringCtant.*;
 import static com.mc.common.utils.UserCommon.setUUId;
@@ -45,6 +46,11 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
     private PostFavoriteMapper postFavoriteMapper;
     @Autowired
     private PostShareMapper postShareMapper;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private PostCommentMapper postCommentMapper;
+
     @Override
     public Boolean editPost(PostDetailTable postDetail,String type) {
         boolean success = false;
@@ -242,6 +248,42 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
 
         }*/
         return R.success("分享成功");
+    }
+
+    @Override
+    public HashMap<String, Object> getCommentList(PostCommentTable postComment) {
+        HashMap<String, Object> map = new HashMap<>();
+        //获取当前用户 存入 map- currentUser
+        //依据post_comment_table中的user_id查询该用户基础信息并存入评论信息中 foreach
+        //返回数据
+        String userId = BaseContext.getUser().getUserId();
+        UserTable user = userService.getById(userId);
+        UserDTO currentUser = BeanUtil.copyProperties(user, UserDTO.class);
+        map.put("currentUser",currentUser);
+
+        //获取查看帖子数据
+        LambdaQueryWrapper<PostCommentTable> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(PostCommentTable::getCommentPostId,postComment.getCommentPostId())
+                .eq(PostCommentTable::getCommentLevel,COMMON_NUMBER_ZERO)
+                .orderByDesc(PostCommentTable::getCreateTime);
+        List<PostCommentTable> commentlist = postCommentMapper.selectList(queryWrapper);
+
+        map.put("commentList",getdata(commentlist));
+
+        return map;
+    }
+    public List<PostCommentTable> getdata(List<PostCommentTable> list){
+        for (PostCommentTable lists:list) {
+            String userId1 = lists.getUserId();
+            UserTable byId = userService.getById(userId1);
+            lists.setUserDTO(BeanUtil.copyProperties(byId,UserDTO.class));
+            LambdaQueryWrapper<PostCommentTable> children = new LambdaQueryWrapper<>();
+            children.eq(PostCommentTable::getCommentLevel,lists.getPostCommentId());
+            List<PostCommentTable> childrenlists = postCommentMapper.selectList(children);
+            getdata(childrenlists);
+            lists.setCommentChList(childrenlists);
+        }
+        return list;
     }
 
 }
