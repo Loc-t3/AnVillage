@@ -272,6 +272,47 @@ public class PostDetailServiceImpl extends ServiceImpl<PostDetailMapper, PostDet
 
         return map;
     }
+
+    @Override
+    public HashMap<String, Object> getPostList(String userId) {
+        HashMap<String, Object> map = new HashMap<>();
+        UserTable user = userService.getById(userId);
+        UserDTO userDTO = BeanUtil.copyProperties(user, UserDTO.class);
+        LambdaQueryWrapper<PostDetailTable> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(PostDetailTable::getUserId,userId);
+        List<PostDetailTable> list = list(queryWrapper);
+        map.put("userInfo",userDTO);
+        map.put("postDetailList",list);
+
+        return map;
+    }
+
+    @Override
+    public HashMap<String, Object> getLikeList(String userId) {
+        HashMap<String, Object> map = new HashMap<>();
+        LambdaQueryWrapper<PostLikeTable> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(PostLikeTable::getLikeUserId,userId);
+        List<PostLikeTable> List = postLikeMapper.selectList(queryWrapper);
+        map.put("likeList",List);
+        return map;
+    }
+
+    @Override
+    public HashMap<String, Object> getFavoriteList(String userId) {
+        HashMap<String, Object> map = new HashMap<>();
+        LambdaQueryWrapper<PostFavoriteTable> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(PostFavoriteTable::getFavoriteUserId,userId);
+        List<PostFavoriteTable> List = postFavoriteMapper.selectList(queryWrapper);
+        map.put("favoriteList",List);
+        return map;
+    }
+
+    /**
+     * 回调函数
+     * 提供给获取评论列表使用
+     * @param list
+     * @return
+     */
     public List<PostCommentTable> getdata(List<PostCommentTable> list){
         for (PostCommentTable lists:list) {
             String userId1 = lists.getUserId();

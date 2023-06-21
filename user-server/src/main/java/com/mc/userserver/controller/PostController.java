@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static com.mc.common.utils.AllStringCtant.COMMON_NUMBER_ONE;
 import static com.mc.common.utils.AllStringCtant.COMMON_NUMBER_ZERO;
@@ -141,6 +142,48 @@ public class PostController {
         HashMap<String, Object> commentList = postDetailService.getCommentList(postComment);
         return R.success(commentList);
     }
+
+    /**
+     * 获取用户主页帖子数据
+     * @return
+     */
+    @PostMapping("/list")
+    public R<Map<String,Object>> getPostList(){
+        String userId = BaseContext.getUser().getUserId();
+
+        return R.success(postDetailService.getPostList(userId));
+
+    }
+
+    /**
+     * 获取用户主页点赞过的数据
+     * @return
+     */
+    @PostMapping("/getLike")
+    public R<Map<String,Object>> getLikeList(){
+        String userId = BaseContext.getUser().getUserId();
+
+        return R.success(postDetailService.getLikeList(userId));
+
+    }
+
+    /**
+     * 获取用户主页收藏的数据
+     * @return
+     */
+    @PostMapping("/getFavorite")
+    public R<Map<String,Object>> getFavoriteList(){
+        String userId = BaseContext.getUser().getUserId();
+
+        return R.success(postDetailService.getFavoriteList(userId));
+
+    }
+
+
+
+
+
+
 
 
 

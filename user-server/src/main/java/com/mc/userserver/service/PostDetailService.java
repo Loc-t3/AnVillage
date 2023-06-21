@@ -26,4 +26,10 @@ public interface PostDetailService extends IService<PostDetailTable> {
     R<String> activeShare(String postDetailId);
 
     HashMap<String,Object> getCommentList(PostCommentTable postComment);
+
+    HashMap<String,Object> getPostList(String userId);
+
+    HashMap<String,Object> getLikeList(String userId);
+
+    HashMap<String,Object> getFavoriteList(String userId);
 }
